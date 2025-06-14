@@ -1,0 +1,383 @@
+
+// import React, { useState } from 'react';
+// import { motion } from 'framer-motion';
+// import { useInView } from 'react-intersection-observer';
+// import { Code, Palette, Zap, Heart } from 'lucide-react';
+// import GitHubCalendar from 'react-github-calendar';
+
+// const About = () => {
+//   const [ref, inView] = useInView({
+//     threshold: 0.1,
+//     triggerOnce: true
+//   });
+
+//   const [showGraph, setShowGraph] = useState(false);
+
+//   const features = [
+//     {
+//       icon: Code,
+//       title: 'Clean Code',
+//       description: 'Writing maintainable and scalable code that stands the test of time.'
+//     },
+//     {
+//       icon: Palette,
+//       title: 'Creative Design',
+//       description: 'Crafting beautiful interfaces that provide exceptional user experiences.'
+//     },
+//     {
+//       icon: Zap,
+//       title: 'Performance',
+//       description: 'Optimizing applications for speed and efficiency across all devices.'
+//     },
+//     {
+//       icon: Heart,
+//       title: 'Passion',
+//       description: 'Bringing enthusiasm and dedication to every project I work on.'
+//     }
+//   ];
+
+//   return (
+//     <section id="about" className="py-20 bg-slate-800/30">
+//       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+//         <motion.div
+//           ref={ref}
+//           initial={{ opacity: 0, y: 50 }}
+//           animate={inView ? { opacity: 1, y: 0 } : {}}
+//           transition={{ duration: 0.8 }}
+//           className="text-center mb-16"
+//         >
+//           <h2 className="text-4xl md:text-5xl font-bold mb-6">
+//             About{' '}
+//             <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+//               Me
+//             </span>
+//           </h2>
+//           <p className="text-lg text-slate-400 max-w-3xl mx-auto">
+//             I'm a passionate developer with over 1 years of experience creating digital solutions.
+//             My journey started with curiosity about how websites work, and it has evolved into
+//             a career dedicated to building meaningful experiences through technology.
+//           </p>
+//         </motion.div>
+//         <motion.div
+//   className="flex flex-col lg:flex-row items-start justify-center gap-16 mb-16"
+//   initial={{ opacity: 0, y: 50 }}
+//   animate={inView ? { opacity: 1, y: 0 } : {}}
+//   transition={{ duration: 0.8, delay: 0.3 }}
+// >
+//   {/* <section
+//     id="github"
+//     className="flex flex-col items-center flex-1 max-w-xl bg-slate-900/60 p-6 rounded-lg shadow-lg"
+//   >
+//     <h2 className="text-2xl font-bold text-white mb-6 text-center">
+//       GitHub Contributions
+//     </h2>
+
+//     <button
+//       onClick={() => setShowGraph(!showGraph)}
+//       className="mb-6 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-md transition"
+//     >
+//       {showGraph ? 'Show Normal Chart' : 'Show Activity Graph'}
+//     </button>
+
+//     {!showGraph ? (
+//       <img
+//         src="https://ghchart.rshah.org/maheshpatil369"
+//         alt="GitHub Contribution Chart"
+//         className="mx-auto"
+//         style={{ width: '100%', maxWidth: 600, height: 'auto' }}
+//       />
+//     ) : (
+//       <img
+//         src="https://github-readme-activity-graph.vercel.app/graph?username=maheshpatil369&bg_color=00000000&color=15bc2f&line=15bc2f&point=15bc2f&hide_border=true"
+//         alt="GitHub Activity Graph"
+//         className="mx-auto"
+//         style={{ width: '100%', maxWidth: 600, height: 250, objectFit: 'contain' }}
+//       />
+//     )}
+//   </section> */}
+
+// <section
+//   id="github"
+//   className="flex flex-col items-center flex-1 max-w-xl bg-slate-900/60 p-6 rounded-lg shadow-lg border border-slate-700/50"
+// >
+//   <h2 className="text-2xl font-bold text-white mb-6 text-center">
+//     GitHub Contributions
+//   </h2>
+
+//   <button
+//     onClick={() => setShowGraph(!showGraph)}
+//     className="mb-6 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md transition"
+//   >
+//     {showGraph ? 'Show Normal Chart' : 'Show Activity Graph'}
+//   </button>
+
+//   {!showGraph ? (
+//     <GitHubCalendar
+//       username="maheshpatil369"
+//       blockSize={12}
+//       blockMargin={5}
+//       fontSize={14}
+//       theme={{
+//         dark: [
+//           '#1e293b', 
+//           '#4ade80', 
+//           '#22c55e', 
+//           '#16a34a', 
+//           '#15803d'  
+//         ]
+//       }}
+//     />
+//   ) : (
+//     <img
+//       src="https://github-readme-activity-graph.vercel.app/graph?username=maheshpatil369&bg_color=00000000&color=15bc2f&line=15bc2f&point=15bc2f&hide_border=true"
+//       alt="GitHub Activity Graph"
+//       className="mx-auto"
+//       style={{ width: '100%', maxWidth: 600, height: 250, objectFit: 'contain' }}
+//     />
+//   )}
+// </section>
+
+
+
+//   <motion.div
+//     className="flex-1 max-w-xl space-y-6 text-left"
+//   >
+//     <h3 className="text-3xl font-bold text-white mb-4">My Story</h3>
+//     <p className="text-slate-400 leading-relaxed text-lg">
+//       When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects,
+//       or sharing knowledge with the developer community. I believe in continuous learning and staying
+//       updated with the latest industry trends.
+//     </p>
+//     <p className="text-slate-400 leading-relaxed text-lg">
+//       My approach combines technical expertise with creative problem-solving to deliver solutions
+//       that not only function flawlessly but also provide delightful user experiences.
+//     </p>
+//   </motion.div>
+// </motion.div>
+
+
+//         <motion.div
+//           initial={{ opacity: 0, y: 50 }}
+//           animate={inView ? { opacity: 1, y: 0 } : {}}
+//           transition={{ duration: 0.8, delay: 0.6 }}
+//           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+//         >
+//           {features.map((feature, index) => (
+//             <motion.div
+//               key={index}
+//               whileHover={{ scale: 1.05, y: -5 }}
+//               className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-xl border border-slate-700/50 hover:border-blue-400/50 transition-all duration-300"
+//             >
+//               <motion.div
+//                 whileHover={{ rotate: 360 }}
+//                 transition={{ duration: 0.5 }}
+//                 className="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-lg flex items-center justify-center mb-4"
+//               >
+//                 <feature.icon size={24} className="text-white" />
+//               </motion.div>
+//               <h4 className="text-xl font-semibold text-white mb-2">{feature.title}</h4>
+//               <p className="text-slate-400 text-sm">{feature.description}</p>
+//             </motion.div>
+//           ))}
+//         </motion.div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default About;
+
+
+import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { Code, Palette, Zap, Heart } from 'lucide-react';
+import GitHubCalendar from 'react-github-calendar';
+
+const About = () => {
+  const [ref, inView] = useInView({
+    threshold: 0.1,
+    triggerOnce: true
+  });
+
+  const [showGraph, setShowGraph] = useState(false);
+
+  const features = [
+    {
+      icon: Code,
+      title: 'Clean Code',
+      description: 'Writing maintainable and scalable code that stands the test of time.'
+    },
+    {
+      icon: Palette,
+      title: 'Creative Design',
+      description: 'Crafting beautiful interfaces that provide exceptional user experiences.'
+    },
+    {
+      icon: Zap,
+      title: 'Performance',
+      description: 'Optimizing applications for speed and efficiency across all devices.'
+    },
+    {
+      icon: Heart,
+      title: 'Passion',
+      description: 'Bringing enthusiasm and dedication to every project I work on.'
+    }
+  ];
+
+  return (
+    <section id="about" className="py-20 bg-slate-800/30">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            About{' '}
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              Me
+            </span>
+          </h2>
+          <p className="text-lg text-slate-400 max-w-3xl mx-auto">
+            I'm a passionate developer with over 1 years of experience creating digital solutions.
+            My journey started with curiosity about how websites work, and it has evolved into
+            a career dedicated to building meaningful experiences through technology.
+          </p>
+        </motion.div>
+
+        {/* <motion.div
+          className="flex flex-col lg:flex-row items-start justify-center gap-16 mb-16"
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          <section
+            id="github"
+            className="order-2 lg:order-1 flex flex-col items-center flex-1 max-w-xl bg-slate-900/60 p-6 rounded-lg shadow-lg border border-slate-700/50"
+          >
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+              GitHub Contributions
+            </h2>
+
+            <button
+              onClick={() => setShowGraph(!showGraph)}
+              className="mb-6 px-6 py-3 text-white bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 rounded-md shadow-lg transition-all duration-300"
+            >
+              {showGraph ? 'Show Normal Chart' : 'Show Activity Graph'}
+            </button>
+
+            {!showGraph ? (
+              <GitHubCalendar
+                username="maheshpatil369"
+                blockSize={12}
+                blockMargin={5}
+                fontSize={14}
+                theme={{
+                  dark: ['#1e293b', 
+                         '#4ade80', 
+                         '#22c55e', 
+                         '#16a34a', 
+                         '#15803d']
+                }}
+              />
+            ) : (
+              <img
+                src="https://github-readme-activity-graph.vercel.app/graph?username=maheshpatil369&bg_color=00000000&color=15bc2f&line=15bc2f&point=15bc2f&hide_border=true"
+                alt="GitHub Activity Graph"
+                className="mx-auto"
+                style={{ width: '100%', maxWidth: 600, height: 250, objectFit: 'contain' }}
+              />
+            )}
+          </section>
+
+          <motion.div className="order-1 lg:order-2 flex-1 max-w-xl space-y-6 text-left">
+            <h3 className="text-3xl font-bold text-white mb-4">My Story</h3>
+            <p className="text-slate-400 leading-relaxed text-lg">
+              When I'm not coding, you'll find me exploring new technologies, contributing to open-source projects,
+              or sharing knowledge with the developer community. I believe in continuous learning and staying
+              updated with the latest industry trends.
+            </p>
+            <p className="text-slate-400 leading-relaxed text-lg">
+              My approach combines technical expertise with creative problem-solving to deliver solutions
+              that not only function flawlessly but also provide delightful user experiences.
+            </p>
+          </motion.div>
+        </motion.div> */}
+
+        <motion.div
+  className="w-full flex justify-center mb-16"
+  initial={{ opacity: 0, y: 50 }}
+  animate={inView ? { opacity: 1, y: 0 } : {}}
+  transition={{ duration: 0.8, delay: 0.3 }}
+>
+  <section
+    id="github"
+    className="w-full max-w-4.2xl p-6 rounded-lg shadow-lg "
+  >
+    <h2 className="text-2xl font-bold text-white mb-6 text-center">
+      GitHub Contributions
+    </h2>
+
+    <button
+      onClick={() => setShowGraph(!showGraph)}
+      className="mx-auto block mb-6 px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md transition duration-200"
+    >
+      {showGraph ? 'Show Normal Chart' : 'Show Activity Graph'}
+    </button>
+
+    {!showGraph ? (
+      <GitHubCalendar
+        username="maheshpatil369"
+        blockSize={14}
+        blockMargin={5}
+        fontSize={15}
+        theme={{
+          dark: ['#1e293b', '#4ade80', '#22c55e', '#16a34a', '#15803d']
+        }}
+        className="w-full overflow-x-auto"
+      />
+    ) : (
+      <img
+        src="https://github-readme-activity-graph.vercel.app/graph?username=maheshpatil369&bg_color=00000000&color=15bc2f&line=15bc2f&point=15bc2f&hide_border=true"
+        alt="GitHub Activity Graph"
+        className="w-full max-w-full object-contain"
+        style={{ height: 260 }}
+      />
+    )}
+  </section>
+</motion.div>
+
+        {/* Feature Boxes */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+        >
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="bg-slate-800/50 backdrop-blur-sm p-6 rounded-xl border border-slate-700/50 hover:border-blue-400/50 transition-all duration-300"
+            >
+              <motion.div
+                whileHover={{ rotate: 360 }}
+                transition={{ duration: 0.5 }}
+                className="w-12 h-12 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-lg flex items-center justify-center mb-4"
+              >
+                <feature.icon size={24} className="text-white" />
+              </motion.div>
+              <h4 className="text-xl font-semibold text-white mb-2">{feature.title}</h4>
+              <p className="text-slate-400 text-sm">{feature.description}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
