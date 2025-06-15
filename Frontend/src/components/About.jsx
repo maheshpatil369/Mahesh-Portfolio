@@ -5,6 +5,11 @@
 // import { Code, Palette, Zap, Heart } from 'lucide-react';
 // import GitHubCalendar from 'react-github-calendar';
 
+
+
+
+
+
 // const About = () => {
 //   const [ref, inView] = useInView({
 //     threshold: 0.1,

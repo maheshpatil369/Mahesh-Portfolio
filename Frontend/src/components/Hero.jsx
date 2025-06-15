@@ -365,7 +365,7 @@ const Hero = () => {
           className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6"
         >
           <motion.a
-            href="https://drive.google.com/file/d/1kTZX_tfnF1BjwJJp-rssxv8lbL36Gx5h/view?usp=sharing"
+            href="https://drive.google.com/file/d/1MqLkt3SGSjeZMvXpT6CNOmFvZJNxe_LG/view?usp=drive_link"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg font-semibold text-white hover:from-blue-600 hover:to-cyan-600 transition-all duration-300"
