@@ -31,7 +31,7 @@ const Skills = () => {
     {
       title: 'Backend',
       skills: [
-        { name: 'Node.js', level: 85, icon: <FaNodeJs className="mr-2 inline-block text-green-500" /> },
+        { name: 'Node.js', level: 85, icon: <FaNodeJs className="mr-2 inline-block text-lime-300" /> },
         { name: 'Python', level: 75, icon: <FaPython className="mr-2 inline-block text-yellow-400" /> },
         { name: 'Express.js', level: 70, icon: <SiExpress className="mr-2 inline-block text-gray-500 dark:text-gray-300" /> },
         { name: 'MongoDB', level: 85, icon: <SiMongodb className="mr-2 inline-block text-green-600" /> },
@@ -106,51 +106,6 @@ const Skills = () => {
           ))}
         </div>
 
-        {/* <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16 text-center"
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="text-3xl font-bold text-blue-400 mb-2"
-              >
-                50+
-              </motion.div>
-              <p className="text-slate-400">Projects</p>
-            </div>
-            <div className="text-center">
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="text-3xl font-bold text-blue-400 mb-2"
-              >
-                5+
-              </motion.div>
-              <p className="text-slate-400">Years Experience</p>
-            </div>
-            <div className="text-center">
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="text-3xl font-bold text-blue-400 mb-2"
-              >
-                30+
-              </motion.div>
-              <p className="text-slate-400">Happy Clients</p>
-            </div>
-            <div className="text-center">
-              <motion.div
-                whileHover={{ scale: 1.1 }}
-                className="text-3xl font-bold text-blue-400 mb-2"
-              >
-                100%
-              </motion.div>
-              <p className="text-slate-400">Satisfaction</p>
-            </div>
-          </div>
-        </motion.div> */}
       </div>
     </section>
   );

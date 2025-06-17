@@ -9,7 +9,7 @@ const ParticleBackground = ({ theme }) => {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
-    // Define colors based on theme
+    
     const particleColorRGB = theme === 'light' ? '156, 197, 252' : '96, 165, 250'; // Light blue for light, brighter blue for dark
     const connectionColorRGB = theme === 'light' ? '191, 219, 254' : '59, 130, 246';   // Lighter blue for light, current blue for dark
 
@@ -59,7 +59,7 @@ const ParticleBackground = ({ theme }) => {
         particle.draw();
       });
 
-      // Draw connections
+
       particles.forEach((particle, i) => {
         particles.slice(i + 1).forEach(otherParticle => {
           const dx = particle.x - otherParticle.x;
@@ -88,7 +88,7 @@ const ParticleBackground = ({ theme }) => {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, [theme]); // Add theme to dependency array to re-run effect on theme change
+  }, [theme]); 
 
   return (
     <motion.canvas

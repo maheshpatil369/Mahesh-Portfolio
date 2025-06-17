@@ -51,29 +51,11 @@ const Navigation = ({ theme, toggleTheme }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
 
-{/* <div className="flex flex-col leading-tight">
-  <motion.button
-    whileHover={{ scale: 1.05 }}
-    className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
-    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-  >
-    Portfolio
-  </motion.button>
-  {activeSection !== 'home' && (
-    <motion.span
-      className="text-xs text-slate-400"
-      initial={{ opacity: 0, y: -5 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-    >
-      Mahesh Patil
-    </motion.span>
-  )}
-</div> */}
+
 <div className="flex flex-col leading-tight">
   <motion.button
     whileHover={{ scale: 1.05 }}
-    className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent dark:text-transparent cursor-pointer" // Ensure gradient text works in dark mode
+    className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent dark:text-transparent cursor-pointer" 
     onClick={() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
       toggleTheme(); // Toggle theme on click
@@ -85,10 +67,10 @@ const Navigation = ({ theme, toggleTheme }) => {
 
   {activeSection !== 'home' && (
     <motion.span
-      className="text-xs bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent dark:text-transparent cursor-pointer" // Ensure gradient text works in dark mode
+      className="text-xs bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent dark:text-transparent cursor-pointer" 
       initial={{ opacity: 0, y: -5 }}
       animate={{ opacity: 1, y: 0 }}
-      onClick={toggleTheme} // Toggle theme on click
+      onClick={toggleTheme} 
       title="Toggle Theme"
       transition={{ duration: 0.3 }}
     >
@@ -98,7 +80,7 @@ const Navigation = ({ theme, toggleTheme }) => {
 </div>
 
 
-          {/* Desktop Navigation */}
+          
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <motion.button
@@ -121,10 +103,9 @@ const Navigation = ({ theme, toggleTheme }) => {
                 )}
               </motion.button>
             ))}
-            {/* Theme Toggle Button - Desktop (REMOVED) */}
+
           </div>
 
-          {/* Mobile Menu Button & Theme Toggle (Theme toggle button REMOVED) */}
           <div className="md:hidden flex items-center">
             <motion.button
               onClick={() => setIsOpen(!isOpen)}
@@ -137,7 +118,6 @@ const Navigation = ({ theme, toggleTheme }) => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         <motion.div
           initial={false}
           animate={{ height: isOpen ? 'auto' : 0 }}
