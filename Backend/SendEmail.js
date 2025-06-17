@@ -6,6 +6,7 @@ dotenv.config();
 
 const router = express.Router();
 
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 router.post('/send-email', async (req, res) => {

@@ -323,7 +323,7 @@ const About = () => {
     className="w-full max-w-4.2xl p-6 rounded-lg shadow-lg "
   >
     <h2 className="text-2xl font-bold text-white mb-6 text-center">
-      GitHub Contributions
+      GitHub Contributions 
     </h2>
 
     <button
