@@ -14,7 +14,6 @@ function App() {
     if (savedTheme) {
       return savedTheme;
     }
-    // If no saved theme, check system preference
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   });
 
@@ -31,7 +30,6 @@ function App() {
     localStorage.setItem('theme', theme);
   }, [theme]);
 
-  // Existing useEffect for context menu and keydown
   useEffect(() => {
     const handleContextMenu = (e) => e.preventDefault();
     const handleKeyDown = (e) => {
