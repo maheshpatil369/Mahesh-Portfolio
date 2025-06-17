@@ -1,13 +1,17 @@
 import React, { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
-const ParticleBackground = () => {
+const ParticleBackground = ({ theme }) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     let animationFrameId;
+
+    // Define colors based on theme
+    const particleColorRGB = theme === 'light' ? '156, 197, 252' : '96, 165, 250'; // Light blue for light, brighter blue for dark
+    const connectionColorRGB = theme === 'light' ? '191, 219, 254' : '59, 130, 246';   // Lighter blue for light, current blue for dark
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -35,7 +39,7 @@ const ParticleBackground = () => {
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59, 130, 246, ${this.opacity})`;
+        ctx.fillStyle = `rgba(${particleColorRGB}, ${this.opacity})`;
         ctx.fill();
       }
     }
@@ -66,7 +70,7 @@ const ParticleBackground = () => {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
-            ctx.strokeStyle = `rgba(59, 130, 246, ${0.1 * (1 - distance / 100)})`;
+            ctx.strokeStyle = `rgba(${connectionColorRGB}, ${0.1 * (1 - distance / 100)})`;
             ctx.stroke();
           }
         });
@@ -84,7 +88,7 @@ const ParticleBackground = () => {
       window.removeEventListener('resize', resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
-  }, []);
+  }, [theme]); // Add theme to dependency array to re-run effect on theme change
 
   return (
     <motion.canvas
