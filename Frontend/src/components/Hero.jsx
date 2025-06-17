@@ -271,7 +271,7 @@ const Hero = ({ theme, toggleTheme }) => {
         </motion.div>
 
         {/* Name */}
-        <motion.h1
+        {/* <motion.h1
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
@@ -281,9 +281,29 @@ const Hero = ({ theme, toggleTheme }) => {
             <button onClick={toggleTheme} 
       title="Toggle Theme"
       transition={{ duration: 0.3 }}>Mahesh Patil</button>
-            {/* Mahesh Patil */}
           </span>
-        </motion.h1>
+        </motion.h1> */}
+
+{/* Name */}
+<motion.h1
+  initial={{ y: 50, opacity: 0 }}
+  animate={{ y: 0, opacity: 1 }}
+  transition={{ delay: 0.2, duration: 0.8 }}
+  className="text-3xl sm:text-7xl font-bold mb-4"
+>
+  <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent dark:text-transparent">
+    <button
+      onClick={toggleTheme}
+      title="Toggle Theme"
+      style={{
+        transition: window.innerWidth >= 1024 ? 'all 0.3s ease' : 'none',
+      }}
+    >
+      Mahesh Patil
+    </button>
+  </span>
+</motion.h1>
+
 
         {/* Typing Text */}
         <motion.div
