@@ -41,7 +41,7 @@ const Hero = ({ theme, toggleTheme }) => {
         >
          
 
-<div className="w-48 h-48 mx-auto mb-8 relative cursor-pointer" onClick={toggleTheme} title="Toggle Theme">
+<div className="w-48 h-48 mx-auto mb-8 relative cursor-pointer" >
        <motion.div
              
               className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 p-1"
@@ -82,8 +82,8 @@ const Hero = ({ theme, toggleTheme }) => {
 >
   <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent dark:text-transparent">
     <button
-      onClick={toggleTheme}
-      title="Toggle Theme"
+      // onClick={toggleTheme}
+      // title="Toggle Theme"
       style={{
         transition: window.innerWidth >= 1024 ? 'all 0.3s ease' : 'none',
       }}
