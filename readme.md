@@ -7,7 +7,7 @@
 
 ## 📸 Preview
 
-![alt text](<Screenshot 2025-06-23 170000.png>)
+![alt text](<Screenshot 2025-06-23 170000.png>) 
 
 
 or just visit 👉 [My Portfolio](https://maheshpatil.tech)
