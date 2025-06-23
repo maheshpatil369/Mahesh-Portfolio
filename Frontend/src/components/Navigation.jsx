@@ -58,9 +58,9 @@ const Navigation = ({ theme, toggleTheme }) => {
     className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent dark:text-transparent cursor-pointer" 
     onClick={() => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
-      toggleTheme(); // Toggle theme on click
+      // toggleTheme(); // Toggle theme on click
     }}
-    title="Toggle Theme / Go to Top"
+    title="Go to Top"
   >
     Portfolio
   </motion.button>
