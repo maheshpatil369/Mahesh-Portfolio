@@ -25,13 +25,13 @@ const Projects = () => {
     },
     {
       id: 2,
-       title: 'Student Feedback System',
-      category: 'backend',
-      description: 'An interactive platform where students can submit feedback on courses, instructors, or college services. Designed to collect and analyze responses, it helps institutions improve teaching quality and address student concerns efficiently.',
-      image: 'https://static.vecteezy.com/system/resources/thumbnails/065/307/364/small_2x/coming-soon-teaser-mysterious-reveal-ahead-video.jpg',
-      technologies: ['React', 'MongoDB', 'Tailwind CSS', 'Tailwind CSS'],
-      liveUrl: '',
-      githubUrl: '#'
+       title: 'PlanPal – Plan, Track, Explore',
+      category: 'fullstack',
+      description: 'PlanPal is a comprehensive tour management platform designed to simplify the planning, recording, and organization of tours. It helps agencies schedule trips, track bookings, manage itineraries, and maintain client records—all in one intuitive interface. With PlanPal, travel agencies can streamline operations, improve customer service, and ensure seamless travel experiences',
+      image: 'https://ik.imagekit.io/xh7qx43uk/Screenshot%202025-06-23%20123235.png?updatedAt=1750662671688',
+      technologies: ['React', 'Python', 'FastAPI', 'WebSocket'],
+      liveUrl: 'https://trip-manager-pro-rx7z.vercel.app/',
+      githubUrl: 'https://github.com/maheshpatil369/TripManager-Pro.git'
      
     },
     {
@@ -67,13 +67,20 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: 'PlanPal – Plan, Track, Explore',
-      category: 'fullstack',
-      description: 'PlanPal is a comprehensive tour management platform designed to simplify the planning, recording, and organization of tours. It helps agencies schedule trips, track bookings, manage itineraries, and maintain client records—all in one intuitive interface. With PlanPal, travel agencies can streamline operations, improve customer service, and ensure seamless travel experiences',
+      // title: 'PlanPal – Plan, Track, Explore',
+      // category: 'fullstack',
+      // description: 'PlanPal is a comprehensive tour management platform designed to simplify the planning, recording, and organization of tours. It helps agencies schedule trips, track bookings, manage itineraries, and maintain client records—all in one intuitive interface. With PlanPal, travel agencies can streamline operations, improve customer service, and ensure seamless travel experiences',
+      // image: 'https://ik.imagekit.io/xh7qx43uk/Screenshot%202025-06-23%20123235.png?updatedAt=1750662671688',
+      // technologies: ['React', 'Python', 'FastAPI', 'WebSocket'],
+      // liveUrl: 'https://trip-manager-pro-rx7z.vercel.app/',
+      // githubUrl: ''
+       title: 'Student Feedback System',
+      category: 'backend',
+      description: 'An interactive platform where students can submit feedback on courses, instructors, or college services. Designed to collect and analyze responses, it helps institutions improve teaching quality and address student concerns efficiently.',
       image: 'https://static.vecteezy.com/system/resources/thumbnails/065/307/364/small_2x/coming-soon-teaser-mysterious-reveal-ahead-video.jpg',
-      technologies: ['React', 'Python', 'FastAPI', 'WebSocket'],
+      technologies: ['React', 'MongoDB', 'Tailwind CSS', 'Tailwind CSS'],
       liveUrl: '',
-      githubUrl: ''
+      githubUrl: '#'
     }
   ];
 
@@ -225,7 +232,7 @@ const Projects = () => {
       <img
         src={selectedProject.image}
         alt={selectedProject.title}
-        className="w-full h-64 object-cover rounded-lg mb-6"
+        className="w-full max-h-[38 0px] object-cover rounded-lg mb-6"
       />
       <h3 className="text-2xl font-bold text-white mb-4">{selectedProject.title}</h3>
       <p className="text-slate-400 mb-6">{selectedProject.description}</p>
