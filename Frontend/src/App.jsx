@@ -9,6 +9,7 @@ import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 import ParticleBackground from './components/ParticleBackground';
+import QASection from './components/QASection';
 
 const ScrollToTopButton = () => {
   const [showButton, setShowButton] = useState(false);
@@ -103,6 +104,7 @@ function App() {
         <About />
         <Skills />
         <Projects />
+        <QASection />
         <Contact />
         <ScrollToTopButton />
       </motion.main>
