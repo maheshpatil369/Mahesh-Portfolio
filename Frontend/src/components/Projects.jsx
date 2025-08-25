@@ -13,15 +13,15 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = [
-    {
+      {
       id: 1,
-      title: 'Employee Management System',
-      category: 'fullstack',
-      description: 'A streamlined platform to manage employee profiles, assign tasks with deadlines, and handle leave requests. It enhances team productivity by centralizing responsibilities and ensuring timely task completion.',
-      image: 'https://ik.imagekit.io/xh7qx43uk/employeemanagementsystem.png?updatedAt=1749470008664',
-      technologies: ['React', 'Node.js', 'LocalStorage', 'Tailwind CSS'],
-      liveUrl: 'https://employee-management-system-maheshpatil369s-projects.vercel.app/',
-      githubUrl: 'https://github.com/maheshpatil369/Employee-Management-System.git'
+      title: 'Farmer Crop Data Management System',
+      category: 'Client',
+      description: 'A comprehensive platform for managing crop data, enabling farmers to track growth, yield, and health metrics effectively.',
+      image: 'https://private-user-images.githubusercontent.com/225584132/481613086-cb69a927-0039-49a4-a82b-2a31005cc317.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTYxMjUxNzksIm5iZiI6MTc1NjEyNDg3OSwicGF0aCI6Ii8yMjU1ODQxMzIvNDgxNjEzMDg2LWNiNjlhOTI3LTAwMzktNDlhNC1hODJiLTJhMzEwMDVjYzMxNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwODI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDgyNVQxMjI3NTlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04ZjBlM2UwYjdiNGY1MmExNDRjMGM3ZjFlOGZmZTZkM2UyMzI2Y2QzYzY3YzJiMTQ2NGEwMGM2YThlZDljYzRiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.HW8dAmiWL0Nm9ABcj9DddAiFqQzq1075aSbIil88Y7o',
+      technologies: ['React', 'TypeScript', 'Flutter','Tailwind CSS'],
+      liveUrl: '#',
+      githubUrl: '#'
     },
     {
       id: 2,
@@ -58,29 +58,22 @@ const Projects = () => {
     {
       id: 5,
       title: 'Portfolio Website',
-      category: 'design',
+      category: 'frontend',
       description: 'A responsive portfolio website with modern animations and smooth scrolling effects showcasing creative work.',
       image: 'https://ik.imagekit.io/xh7qx43uk/Screenshot%202025-06-09%20173112.png?updatedAt=1749470491233',
       technologies: ['React', 'Framer Motion', 'Tailwind CSS'],
       liveUrl: 'maheshpatil.tech',
       githubUrl: 'https://github.com/maheshpatil369?tab=repositories'
     },
-    {
+   {
       id: 6,
-      // title: 'PlanPal – Plan, Track, Explore',
-      // category: 'fullstack',
-      // description: 'PlanPal is a comprehensive tour management platform designed to simplify the planning, recording, and organization of tours. It helps agencies schedule trips, track bookings, manage itineraries, and maintain client records—all in one intuitive interface. With PlanPal, travel agencies can streamline operations, improve customer service, and ensure seamless travel experiences',
-      // image: 'https://ik.imagekit.io/xh7qx43uk/Screenshot%202025-06-23%20123235.png?updatedAt=1750662671688',
-      // technologies: ['React', 'Python', 'FastAPI', 'WebSocket'],
-      // liveUrl: 'https://trip-manager-pro-rx7z.vercel.app/',
-      // githubUrl: ''
-       title: 'Student Feedback System',
-      category: 'backend',
-      description: 'An interactive platform where students can submit feedback on courses, instructors, or college services. Designed to collect and analyze responses, it helps institutions improve teaching quality and address student concerns efficiently.',
-      image: 'https://static.vecteezy.com/system/resources/thumbnails/065/307/364/small_2x/coming-soon-teaser-mysterious-reveal-ahead-video.jpg',
-      technologies: ['React', 'MongoDB', 'Tailwind CSS', 'Tailwind CSS'],
-      liveUrl: '',
-      githubUrl: '#'
+      title: 'Employee Management System',
+      category: 'fullstack',
+      description: 'A streamlined platform to manage employee profiles, assign tasks with deadlines, and handle leave requests. It enhances team productivity by centralizing responsibilities and ensuring timely task completion.',
+      image: 'https://ik.imagekit.io/xh7qx43uk/employeemanagementsystem.png?updatedAt=1749470008664',
+      technologies: ['React', 'Node.js', 'LocalStorage', 'Tailwind CSS'],
+      liveUrl: 'https://employee-management-system-maheshpatil369s-projects.vercel.app/',
+      githubUrl: 'https://github.com/maheshpatil369/Employee-Management-System.git'
     }
   ];
 
@@ -89,7 +82,7 @@ const Projects = () => {
     { id: 'fullstack', label: 'Full Stack' },
     { id: 'frontend', label: 'Frontend' },
     { id: 'backend', label: 'Backend' },
-    { id: 'design', label: 'Design' }
+    { id: 'Client', label: 'Client' }
   ];
 
   const filteredProjects = filter === 'all' 

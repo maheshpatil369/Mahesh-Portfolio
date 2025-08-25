@@ -68,7 +68,7 @@ const AQSection = () => {
   };
 
   return (
-    <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-white">
+    <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-white">
       <h2 className="text-4xl font-bold text-center mb-12 underline decoration-sky-500 underline-offset-[10px]">
         Frequently Asked Questions
       </h2>

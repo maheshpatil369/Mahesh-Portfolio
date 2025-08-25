@@ -33,14 +33,14 @@ const ScrollToTopButton = () => {
 
   return (
     showButton && (
-<button
-  onClick={scrollToHome}
-  title="Back to Top"
-  className="fixed bottom-5 right-4 z-50 p-2 md:p-3 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 animate-bounce"
-  aria-label="Scroll to Home"
->
-  <ArrowUpCircle className="w-5 h-5 md:w-7 md:h-7" />
-</button>
+      <button
+        onClick={scrollToHome}
+        title="Back to Top"
+        className="fixed bottom-5 right-4 z-50 p-2 md:p-3 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 text-white shadow-md hover:shadow-lg hover:scale-105 transition-all duration-300 animate-bounce"
+        aria-label="Scroll to Home"
+      >
+        <ArrowUpCircle className="w-5 h-5 md:w-7 md:h-7" />
+      </button>
     )
   );
 };
@@ -88,6 +88,13 @@ function App() {
     };
   }, []);
 
+  // 🟢 Ping Backend on Portfolio Load
+  useEffect(() => {
+    fetch("https://your-backend.onrender.com/ping") // <-- replace with your actual backend URL
+      .then(() => console.log("Backend pinged & woken up 🚀"))
+      .catch((err) => console.log("Ping failed ❌", err));
+  }, []);
+
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900 text-slate-800 dark:text-white overflow-x-hidden transition-colors duration-300">
       <ParticleBackground theme={theme} />
@@ -119,4 +126,3 @@ function App() {
 }
 
 export default App;
-
