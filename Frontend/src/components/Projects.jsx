@@ -3,6 +3,34 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 
+// Helper function to convert any YouTube URL to an embeddable URL with autoplay and minimal UI
+const getYouTubeEmbedUrl = (url) => {
+  if (!url) return '';
+  let videoId = '';
+
+  // Regex to find the video ID from various YouTube URL formats
+  const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+  const match = url.match(regex);
+
+  if (match && match[1]) {
+    videoId = match[1];
+  } else if (url.includes('/embed/')) {
+    // If it is already an embed url, extract the id
+    const embedMatch = url.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
+    if (embedMatch && embedMatch[1]) {
+      videoId = embedMatch[1];
+    }
+  }
+
+  if (videoId) {
+    // Add parameters to autoplay, mute, hide controls, and remove related videos/title
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0`;
+  }
+
+  return ''; // Return empty string if no valid ID is found
+};
+
+
 const Projects = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
@@ -21,9 +49,10 @@ const Projects = () => {
       image: 'https://ik.imagekit.io/6honyi0g1d/Screenshot%202025-08-25%20180414.png?updatedAt=1756318171600',
       technologies: ['React', 'TypeScript', 'Flutter','Tailwind CSS'],
       liveUrl: '#',
-      githubUrl: '#'
+      githubUrl: '#',
+      youtubeUrl: 'https://youtu.be/EnL-osAQ8PI' // This will now be correctly converted
     },
-    {
+    {   
       id: 2,
        title: 'PlanPal – Plan, Track, Explore',
       category: 'fullstack',
@@ -31,8 +60,8 @@ const Projects = () => {
       image: 'https://ik.imagekit.io/xh7qx43uk/Screenshot%202025-06-23%20123235.png?updatedAt=1750662671688',
       technologies: ['React', 'Python', 'FastAPI', 'WebSocket'],
       liveUrl: 'https://trip-manager-pro-rx7z.vercel.app/',
-      githubUrl: 'https://github.com/maheshpatil369/TripManager-Pro.git'
-     
+      githubUrl: 'https://github.com/maheshpatil369/TripManager-Pro.git',
+      youtubeUrl: 'https://youtu.be/6UnoJ_qdUuk' // This will also be converted
     },
     {
       id: 3,
@@ -42,8 +71,8 @@ const Projects = () => {
       image: 'https://ik.imagekit.io/xh7qx43uk/Screenshot%202025-06-09%20172613.png?updatedAt=1749470204263',
       technologies: ['JavaScript', 'Tailwind CSS', 'GSAC Animation', 'HTML'],
       liveUrl: 'https://obyes-agency-clone.vercel.app/',
-      githubUrl: 'https://github.com/maheshpatil369/obys-agency-clone.git'
-
+      githubUrl: 'https://github.com/maheshpatil369/obys-agency-clone.git',
+      youtubeUrl: 'https://youtu.be/UX2EYwclRcA' // This will also be converted
     },
     {
       id: 4,
@@ -73,7 +102,8 @@ const Projects = () => {
       image: 'https://ik.imagekit.io/xh7qx43uk/employeemanagementsystem.png?updatedAt=1749470008664',
       technologies: ['React', 'Node.js', 'LocalStorage', 'Tailwind CSS'],
       liveUrl: 'https://employee-management-system-maheshpatil369s-projects.vercel.app/',
-      githubUrl: 'https://github.com/maheshpatil369/Employee-Management-System.git'
+      githubUrl: 'https://github.com/maheshpatil369/Employee-Management-System.git',
+      youtubeUrl: 'https://youtu.be/ZEXJYcjO7lA' // This will also be converted
     }
   ];
 
@@ -158,6 +188,8 @@ const Projects = () => {
                     </motion.button>
                     <motion.a
                       href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-2 bg-green-500 rounded-full text-white hover:bg-green-600 transition-colors"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
@@ -166,6 +198,8 @@ const Projects = () => {
                     </motion.a>
                     <motion.a
                       href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="p-2 bg-gray-500 rounded-full text-white hover:bg-gray-600 transition-colors"
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
@@ -196,9 +230,6 @@ const Projects = () => {
         </motion.div>
 
         <AnimatePresence>
-         
-
-
 {selectedProject && (
   <motion.div
     initial={{ opacity: 0 }}
@@ -222,11 +253,24 @@ const Projects = () => {
       className="relative bg-slate-800 rounded-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
       onClick={(e) => e.stopPropagation()}
     >
-      <img
-        src={selectedProject.image}
-        alt={selectedProject.title}
-        className="w-full max-h-[38 0px] object-cover rounded-lg mb-6"
-      />
+      {selectedProject.youtubeUrl ? (
+        <div className="aspect-video mb-6">
+          <iframe
+            src={getYouTubeEmbedUrl(selectedProject.youtubeUrl)}
+            title={selectedProject.title}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full rounded-lg"
+          ></iframe>
+        </div>
+      ) : (
+        <img
+          src={selectedProject.image}
+          alt={selectedProject.title}
+          className="w-full max-h-[380px] object-cover rounded-lg mb-6"
+        />
+      )}
       <h3 className="text-2xl font-bold text-white mb-4">{selectedProject.title}</h3>
       <p className="text-slate-400 mb-6">{selectedProject.description}</p>
 
@@ -244,6 +288,8 @@ const Projects = () => {
       <div className="flex space-x-4">
         <motion.a
           href={selectedProject.liveUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -253,6 +299,8 @@ const Projects = () => {
         </motion.a>
         <motion.a
           href={selectedProject.githubUrl}
+          target="_blank"
+          rel="noopener noreferrer"
           className="flex items-center space-x-2 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -264,9 +312,6 @@ const Projects = () => {
     </motion.div>
   </motion.div>
 )}
-
-
-
         </AnimatePresence>
       </div>
     </section>
