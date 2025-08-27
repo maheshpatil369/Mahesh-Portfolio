@@ -18,7 +18,7 @@ const Projects = () => {
       title: 'Farmer Crop Data Management System',
       category: 'Client',
       description: 'A comprehensive platform for managing crop data, enabling farmers to track growth, yield, and health metrics effectively.',
-      image: 'https://private-user-images.githubusercontent.com/225584132/481613086-cb69a927-0039-49a4-a82b-2a31005cc317.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NTYxMjUxNzksIm5iZiI6MTc1NjEyNDg3OSwicGF0aCI6Ii8yMjU1ODQxMzIvNDgxNjEzMDg2LWNiNjlhOTI3LTAwMzktNDlhNC1hODJiLTJhMzEwMDVjYzMxNy5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwODI1JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDgyNVQxMjI3NTlaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT04ZjBlM2UwYjdiNGY1MmExNDRjMGM3ZjFlOGZmZTZkM2UyMzI2Y2QzYzY3YzJiMTQ2NGEwMGM2YThlZDljYzRiJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.HW8dAmiWL0Nm9ABcj9DddAiFqQzq1075aSbIil88Y7o',
+      image: 'https://ik.imagekit.io/6honyi0g1d/Screenshot%202025-08-25%20180414.png?updatedAt=1756318171600',
       technologies: ['React', 'TypeScript', 'Flutter','Tailwind CSS'],
       liveUrl: '#',
       githubUrl: '#'
