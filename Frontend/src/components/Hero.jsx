@@ -48,7 +48,7 @@ const Hero = ({ theme, toggleTheme }) => {
             >
               <div className="w-full h-full rounded-full bg-white dark:bg-slate-900 flex items-center justify-center transition-colors duration-300">
                 <img
-                  src="https://ik.imagekit.io/6honyi0g1d/unnamed.png?updatedAt=1756543247979"
+                  src="https://ik.imagekit.io/xh7qx43uk/vecteezy_male-and-female-user-icons-in-flat-minimalist-silhouette-and_59969629.jpg?updatedAt=1750699027561"
                   // src="https://ik.imagekit.io/xh7qx43uk/Pi7_Tool_Crop%20%20that%20for%20profile.jpg?updatedAt=1749462587781"
                   // src="https://images.unsplash.com/photo-1749316028556-dcdb0316d71d?q=80&w=2035&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Profile"
