@@ -55,8 +55,28 @@ const faqData = [
   },
   {
     question: "Do you contribute to open source?",
-    answer:
-      "Yes, I love contributing to open source and sharing helpful tools and UI components.",
+    answer: (
+      <>
+        Yes, I love contributing to open source and sharing helpful tools and UI components.
+        I’ve also worked on client projects such as 🌾 <strong>FarmSync – Farmer & Crop Management</strong>,
+        a comprehensive full-stack system that streamlines agricultural data management and improves decision-making.
+        <br/><br/>
+        <div className="flex items-center space-x-4 text-xs sm:text-sm">
+          <span>
+            🔗&nbsp;GitHub:{" "}
+            <a href="https://github.com/maheshpatil369/Emp-mange-project" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-500 underline">
+              Click here
+            </a>
+          </span>
+          <span>
+            ▶️&nbsp;YouTube Demo:{" "}
+            <a href="https://youtu.be/EnL-osAQ8PI" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-500 underline">
+              Watch here
+            </a>
+          </span>
+        </div>
+      </>
+    ),
   },
 ];
 

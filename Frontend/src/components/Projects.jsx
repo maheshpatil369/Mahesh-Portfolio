@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, Eye } from 'lucide-react';
+import { ExternalLink, Github, Eye, Star } from 'lucide-react';
 
 // Helper function to convert any YouTube URL to an embeddable URL with autoplay and minimal UI
 const getYouTubeEmbedUrl = (url) => {
@@ -23,8 +23,8 @@ const getYouTubeEmbedUrl = (url) => {
   }
 
   if (videoId) {
-    // Add parameters to autoplay, mute, hide controls, and remove related videos/title
-    return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=0&showinfo=0&rel=0`;
+    // Add parameters for autoplay, mute, controls, looping, and the playlist
+    return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=1&loop=1&playlist=${videoId}&showinfo=0&rel=0`;
   }
 
   return ''; // Return empty string if no valid ID is found
@@ -50,7 +50,7 @@ const Projects = () => {
       technologies: ['React', 'TypeScript', 'Flutter','Tailwind CSS'],
       liveUrl: '#',
       githubUrl: '#',
-      youtubeUrl: 'https://youtu.be/EnL-osAQ8PI' // This will now be correctly converted
+      youtubeUrl: 'https://youtu.be/EnL-osAQ8PI'
     },
     {   
       id: 2,
@@ -61,7 +61,7 @@ const Projects = () => {
       technologies: ['React', 'Python', 'FastAPI', 'WebSocket'],
       liveUrl: 'https://trip-manager-pro-rx7z.vercel.app/',
       githubUrl: 'https://github.com/maheshpatil369/TripManager-Pro.git',
-      youtubeUrl: 'https://youtu.be/6UnoJ_qdUuk' // This will also be converted
+      youtubeUrl: 'https://youtu.be/6UnoJ_qdUuk'
     },
     {
       id: 3,
@@ -72,7 +72,7 @@ const Projects = () => {
       technologies: ['JavaScript', 'Tailwind CSS', 'GSAC Animation', 'HTML'],
       liveUrl: 'https://obyes-agency-clone.vercel.app/',
       githubUrl: 'https://github.com/maheshpatil369/obys-agency-clone.git',
-      youtubeUrl: 'https://youtu.be/UX2EYwclRcA' // This will also be converted
+      youtubeUrl: 'https://youtu.be/UX2EYwclRcA'
     },
     {
       id: 4,
@@ -103,7 +103,7 @@ const Projects = () => {
       technologies: ['React', 'Node.js', 'LocalStorage', 'Tailwind CSS'],
       liveUrl: 'https://employee-management-system-maheshpatil369s-projects.vercel.app/',
       githubUrl: 'https://github.com/maheshpatil369/Employee-Management-System.git',
-      youtubeUrl: 'https://youtu.be/ZEXJYcjO7lA' // This will also be converted
+      youtubeUrl: 'https://youtu.be/ZEXJYcjO7lA'
     }
   ];
 
@@ -169,7 +169,7 @@ const Projects = () => {
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="bg-slate-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 hover:border-blue-400/50 transition-all duration-300 group"
+                className={`bg-slate-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 transition-all duration-300 group ${project.category === 'Client' ? 'ring-2 ring-purple-500 shadow-xl shadow-purple-500/20' : 'hover:border-blue-400/50'}`}
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -207,6 +207,12 @@ const Projects = () => {
                       <Github size={20} />
                     </motion.a>
                   </div>
+                  {project.category === 'Client' && (
+                    <span className="absolute top-2 right-2 bg-purple-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-lg flex items-center space-x-1">
+                      <Star size={12} className="fill-current text-white" />
+                      <span>Client Project</span>
+                    </span>
+                  )}
                 </div>
 
                 <div className="p-6">
