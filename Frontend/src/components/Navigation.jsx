@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 
 const Navigation = ({ theme, toggleTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,6 +20,7 @@ const Navigation = ({ theme, toggleTheme }) => {
       const scrollPosition = window.scrollY + 100;
 
       sections.forEach((section, index) => {
+        // Check if the section exists before accessing its properties
         if (section) {
           const { offsetTop, offsetHeight } = section;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
@@ -50,33 +51,36 @@ const Navigation = ({ theme, toggleTheme }) => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-14">
 
-          <div className="flex flex-col leading-tight">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent dark:text-transparent cursor-pointer"
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                // toggleTheme(); // Toggle theme on click (commented out)
-              }}
-              title="Go to Top"
-            >
-              Portfolio
-            </motion.button>
 
-            {activeSection !== 'home' && (
-              <motion.span
-                className="text-xs bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent dark:text-transparent cursor-pointer"
-                initial={{ opacity: 0, y: -5 }}
-                animate={{ opacity: 1, y: 0 }}
-                // onClick={toggleTheme}  // Theme toggle disabled here
-                title="Toggle Theme"
-                transition={{ duration: 0.3 }}
-              >
-                Mahesh Patil
-              </motion.span>
-            )}
-          </div>
+<div className="flex flex-col leading-tight">
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    className="text-2xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent dark:text-transparent cursor-pointer" 
+    onClick={() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // toggleTheme(); // Toggle theme on click
+    }}
+    title="Go to Top"
+  >
+    Portfolio
+  </motion.button>
 
+  {activeSection !== 'home' && (
+    <motion.span
+      className="text-xs bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text text-transparent dark:text-transparent cursor-pointer" 
+      initial={{ opacity: 0, y: -5 }}
+      animate={{ opacity: 1, y: 0 }}
+      onClick={toggleTheme} 
+      title="Toggle Theme"
+      transition={{ duration: 0.3 }}
+    >
+      Mahesh Patil
+    </motion.span>
+  )}
+</div>
+
+
+          
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <motion.button
@@ -99,6 +103,7 @@ const Navigation = ({ theme, toggleTheme }) => {
                 )}
               </motion.button>
             ))}
+
           </div>
 
           <div className="md:hidden flex items-center">
