@@ -8,7 +8,8 @@ const Hero = ({ theme }) => {
   const [isResumeVisible, setIsResumeVisible] = useState(false); // State for modal visibility
 
   // Construct the Google Drive embed URL from the file ID
-  const resumeFileId = '1cB6joSQcFWk8aM7iEJmFRb2phpgqeKdO'; // Extracted from QASection link
+  // Updated resumeFileId with the new ID provided by the user
+  const resumeFileId = '1PgsaQCoJPWLyJaANLV_l3qjClMaPFCN9';
   const resumeEmbedUrl = `https://drive.google.com/file/d/${resumeFileId}/preview`;
 
 
@@ -50,7 +51,6 @@ const Hero = ({ theme }) => {
     <> {/* Use Fragment to wrap section and modal */}
       <section id="home" className="min-h-screen flex items-center justify-center p-4 relative">
         <div className="max-w-6xl w-full text-center mx-auto pt-12 px-2 sm:px-6 lg:px-8">
-          {/* ... (rest of the Hero component content remains the same) ... */}
            <motion.div
              initial={{ scale: 0.5, opacity: 0 }}
              animate={{ scale: 1, opacity: 1 }}
@@ -231,7 +231,7 @@ const Hero = ({ theme }) => {
               {/* Iframe for PDF */}
               <div className="flex-grow overflow-hidden">
                 <iframe
-                  src={resumeEmbedUrl}
+                  src={resumeEmbedUrl} // This URL now uses the updated ID
                   title="Mahesh Patil Resume"
                   className="w-full h-full border-0"
                   allow="fullscreen"
