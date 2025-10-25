@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpCircle } from 'lucide-react';
 
+// Corrected import paths relative to App.jsx in the src directory
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -46,34 +47,22 @@ const ScrollToTopButton = () => {
 };
 
 function App() {
-  const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      return savedTheme;
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  });
+  // Force the theme to always be 'dark'
+  const theme = 'dark';
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
-  };
-
+  // Always apply the dark class on component mount
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    document.documentElement.classList.add('dark');
+  }, []); // Empty dependency array ensures this runs only once on mount
 
+  // Security features for context menu and developer tools prevention
   useEffect(() => {
     const handleContextMenu = (e) => e.preventDefault();
     const handleKeyDown = (e) => {
       if (
-        e.keyCode === 123 ||
-        (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
-        (e.ctrlKey && (e.key === "U" || e.key === "S"))
+        e.keyCode === 123 || // F12
+        (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) || // Ctrl+Shift+I/J
+        (e.ctrlKey && (e.key === "U" || e.key === "S")) // Ctrl+U/S
       ) {
         e.preventDefault();
       }
@@ -88,25 +77,32 @@ function App() {
     };
   }, []);
 
-  // 🟢 Ping Backend on Portfolio Load
+  // Ping Backend on Portfolio Load
   useEffect(() => {
-    fetch("https://your-backend.onrender.com/ping") // <-- replace with your actual backend URL
+    // Determine the backend URL based on the environment
+    const backendUrl = import.meta.env.VITE_API_URL || 'https://your-backend.onrender.com'; // Use VITE_API_URL or fallback
+
+    fetch(`${backendUrl}/ping`) // Use the determined URL
       .then(() => console.log("Backend pinged & woken up 🚀"))
       .catch((err) => console.log("Ping failed ❌", err));
   }, []);
 
+
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-900 text-slate-800 dark:text-white overflow-x-hidden transition-colors duration-300">
+    // Ensure the root div always has the dark theme classes
+    <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
+      {/* Pass the static 'dark' theme to ParticleBackground */}
       <ParticleBackground theme={theme} />
-      <Navigation theme={theme} toggleTheme={toggleTheme} />
+      {/* Pass the static 'dark' theme to Navigation, remove toggleTheme prop */}
+      <Navigation theme={theme} />
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        {/* Make sure Hero has id="home" */}
         <div id="home">
-          <Hero theme={theme} toggleTheme={toggleTheme} />
+          {/* Pass the static 'dark' theme to Hero, remove toggleTheme prop */}
+          <Hero theme={theme} />
         </div>
         <About />
         <Skills />
@@ -116,8 +112,9 @@ function App() {
         <ScrollToTopButton />
       </motion.main>
 
-      <footer className="bg-slate-100 dark:bg-slate-800/50 backdrop-blur-sm py-8 text-center transition-colors duration-300">
-        <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm">
+      {/* Footer styled for dark mode */}
+      <footer className="bg-slate-800/50 backdrop-blur-sm py-8 text-center transition-colors duration-300">
+        <p className="text-slate-400 text-xs sm:text-sm">
           © 2025 Mahesh Patil. All rights reserved.
         </p>
       </footer>
@@ -126,3 +123,4 @@ function App() {
 }
 
 export default App;
+
