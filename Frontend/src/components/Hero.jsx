@@ -10,7 +10,7 @@ const Hero = ({ theme }) => {
   // Construct the Google Drive embed URL from the file ID
   // Updated resumeFileId with the new ID provided by the user
   const resumeFileId = '1PgsaQCoJPWLyJaANLV_l3qjClMaPFCN9';
-  const resumeEmbedUrl = `https://drive.google.com/file/d/1O5DQHKu9xy13TnGiOXEwft9yFOfh3lOq/view?usp=drive_link`;
+  const resumeEmbedUrl = `https://drive.google.com/file/d/1O5DQHKu9xy13TnGiOXEwft9yFOfh3lOq/view?usp=sharing`;
 
 
   useEffect(() => {
