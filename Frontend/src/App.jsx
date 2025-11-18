@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpCircle } from 'lucide-react';
 
-// Corrected import paths relative to App.jsx in the src directory
 import Hero from './components/Hero';
 import About from './components/About';
 import Skills from './components/Skills';
@@ -12,13 +11,17 @@ import Navigation from './components/Navigation';
 import ParticleBackground from './components/ParticleBackground';
 import QASection from './components/QASection';
 
+// ✅ Vercel Analytics import (React version)
+import { Analytics } from "@vercel/analytics/react";
+
 const ScrollToTopButton = () => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const homeTop = document.getElementById('home')?.getBoundingClientRect().top || 0;
-      setShowButton(homeTop < -200); // show after leaving home section
+      const homeTop =
+        document.getElementById('home')?.getBoundingClientRect().top || 0;
+      setShowButton(homeTop < -200);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -47,22 +50,20 @@ const ScrollToTopButton = () => {
 };
 
 function App() {
-  // Force the theme to always be 'dark'
   const theme = 'dark';
 
-  // Always apply the dark class on component mount
   useEffect(() => {
     document.documentElement.classList.add('dark');
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, []);
 
-  // Security features for context menu and developer tools prevention
+  // Protect content (disable inspect)
   useEffect(() => {
     const handleContextMenu = (e) => e.preventDefault();
     const handleKeyDown = (e) => {
       if (
-        e.keyCode === 123 || // F12
-        (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) || // Ctrl+Shift+I/J
-        (e.ctrlKey && (e.key === "U" || e.key === "S")) // Ctrl+U/S
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) ||
+        (e.ctrlKey && (e.key === "U" || e.key === "S"))
       ) {
         e.preventDefault();
       }
@@ -77,33 +78,30 @@ function App() {
     };
   }, []);
 
-  // Ping Backend on Portfolio Load
+  // Ping backend on load
   useEffect(() => {
-    // Determine the backend URL based on the environment
-    const backendUrl = import.meta.env.VITE_API_URL || 'https://your-backend.onrender.com'; // Use VITE_API_URL or fallback
+    const backendUrl =
+      import.meta.env.VITE_API_URL || 'https://your-backend.onrender.com';
 
-    fetch(`${backendUrl}/ping`) // Use the determined URL
-      .then(() => console.log("Backend pinged & woken up 🚀"))
+    fetch(`${backendUrl}/ping`)
+      .then(() => console.log("Backend pinged 🚀"))
       .catch((err) => console.log("Ping failed ❌", err));
   }, []);
 
-
   return (
-    // Ensure the root div always has the dark theme classes
     <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
-      {/* Pass the static 'dark' theme to ParticleBackground */}
       <ParticleBackground theme={theme} />
-      {/* Pass the static 'dark' theme to Navigation, remove toggleTheme prop */}
       <Navigation theme={theme} />
+
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
         <div id="home">
-          {/* Pass the static 'dark' theme to Hero, remove toggleTheme prop */}
           <Hero theme={theme} />
         </div>
+
         <About />
         <Skills />
         <Projects />
@@ -112,15 +110,16 @@ function App() {
         <ScrollToTopButton />
       </motion.main>
 
-      {/* Footer styled for dark mode */}
       <footer className="bg-slate-800/50 backdrop-blur-sm py-8 text-center transition-colors duration-300">
         <p className="text-slate-400 text-xs sm:text-sm">
           © 2025 Mahesh Patil. All rights reserved.
         </p>
       </footer>
+
+      {/* ⭐ Vercel Analytics Tracking */}
+      <Analytics />
     </div>
   );
 }
 
 export default App;
-
