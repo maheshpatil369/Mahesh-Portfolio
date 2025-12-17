@@ -35,74 +35,150 @@ const Skills = () => {
 
   const [activeDescription, setActiveDescription] = useState(null);
 
-  const skillCategories = [
-    {
-      title: 'Frontend',
-      skills: [
-        { name: 'React', level: 95, icon: <FaReact className="mr-2 inline-block text-blue-400" /> },
-        { name: 'JavaScript', level: 80, icon: <IoLogoJavascript className="mr-2 inline-block text-yellow-400" /> },
-        { name: 'Tailwind CSS', level: 90, icon: <SiTailwindcss className="mr-2 inline-block text-teal-400" /> },
-        { name: 'HTML', level: 95, icon: <FaHtml5 className="mr-1 inline-block text-orange-500" /> },
-        { name: 'CSS', level: 85, icon: <FaCss3Alt className="mr-2 inline-block text-blue-500 " /> },
-      ],
-    },
-    {
-      title: 'Backend',
-      skills: [
-        { name: 'Node.js', level: 85, icon: <FaNodeJs className="mr-2 inline-block text-lime-300" /> },
-        { name: 'Python', level: 75, icon: <FaPython className="mr-2 inline-block text-yellow-400" /> },
-        { name: 'Express.js', level: 70, icon: <SiExpress className="mr-2 inline-block text-gray-500 dark:text-gray-300" /> },
-        { name: 'MongoDB', level: 85, icon: <SiMongodb className="mr-2 inline-block text-green-600" /> },
-        { name: 'PostgreSQL', level: 85, icon: <SiPostgresql className="mr-2 inline-block text-blue-600" /> },
-      ],
-    },
- 
-    {
-      title: 'Cybersecurity Tools (Beginner)',
-      skills: [
-        {
-          name: 'Wireshark',
-          level: 70,
-          icon: <SiWireshark className="mr-2 inline-block text-blue-500" />,
-          description: 'Network traffic analysis',
-        },
-        {
-          name: 'Nmap',
-          level: 65,
-          icon: <FaLock className="mr-2 inline-block text-red-500" />,
-          description: 'Device & port scanning',
-        },
-        {
-          name: 'Burp Suite',
-          level: 60,
-          icon: <SiBurpsuite className="mr-2 inline-block text-orange-600" />,
-          description: 'Web request testing',
-        },
-        {
-          name: 'OWASP ZAP',
-          level: 65,
-          icon: <SiOwasp className="mr-2 inline-block text-orange-400" />,
-          description: 'Website vulnerability scan',
-        },
-        {
-          name: 'Kali Linux',
-          level: 60,
-          icon: <SiKalilinux className="mr-2 inline-block text-green-600" />,
-          description: 'Security testing toolkit',
-        },
-      ],
-    },
-       {
-      title: 'Tools & Design',
-      skills: [
-        { name: 'Git', level: 95, icon: <FaGitAlt className="mr-2 inline-block text-orange-600" /> },
-        { name: 'ChatGPT', level: 99, icon: <SiOpenai className="mr-2 inline-block text-blue-500" /> },
-        { name: 'Firebase', level: 60, icon: <SiFirebase className="mr-2 inline-block text-yellow-500" /> },
-        { name: 'Adobe XD', level: 75, icon: <SiAdobexd className="mr-2 inline-block text-pink-400" /> },
-        { name: 'Bolt', level: 85, icon: <HiLightningBolt className="mr-2 inline-block text-orange-500" /> },
-      ],
-    },
-  ];
+const skillCategories = [
+  {
+    title: 'Frontend',
+    skills: [
+      {
+        name: 'React',
+        level: 95,
+        icon: <FaReact className="mr-2 inline-block text-blue-400" />,
+        description: 'Building modern, component-based user interfaces.'
+      },
+      {
+        name: 'JavaScript',
+        level: 80,
+        icon: <IoLogoJavascript className="mr-2 inline-block text-yellow-400" />,
+        description: 'Implementing interactive logic using ES6+ JavaScript.'
+      },
+      {
+        name: 'Tailwind CSS',
+        level: 90,
+        icon: <SiTailwindcss className="mr-2 inline-block text-teal-400" />,
+        description: 'Creating responsive designs with utility-first CSS.'
+      },
+      {
+        name: 'HTML',
+        level: 95,
+        icon: <FaHtml5 className="mr-1 inline-block text-orange-500" />,
+        description: 'Structuring semantic and accessible web pages.'
+      },
+      {
+        name: 'CSS',
+        level: 85,
+        icon: <FaCss3Alt className="mr-2 inline-block text-blue-500" />,
+        description: 'Styling layouts, animations, and responsive UI.'
+      },
+    ],
+  },
+  {
+    title: 'Backend',
+    skills: [
+      {
+        name: 'Node.js',
+        level: 85,
+        icon: <FaNodeJs className="mr-2 inline-block text-lime-300" />,
+        description: 'Developing scalable server-side applications.'
+      },
+      {
+        name: 'Python',
+        level: 75,
+        icon: <FaPython className="mr-2 inline-block text-yellow-400" />,
+        description: 'Writing backend logic and automation scripts.'
+      },
+      {
+        name: 'Express.js',
+        level: 70,
+        icon: <SiExpress className="mr-2 inline-block text-gray-500 dark:text-gray-300" />,
+        description: 'Building RESTful APIs and backend services.'
+      },
+      {
+        name: 'MongoDB',
+        level: 85,
+        icon: <SiMongodb className="mr-2 inline-block text-green-600" />,
+        description: 'Managing NoSQL databases and data models.'
+      },
+      {
+        name: 'PostgreSQL',
+        level: 85,
+        icon: <SiPostgresql className="mr-2 inline-block text-blue-600" />,
+        description: 'Working with relational databases and queries.'
+      },
+    ],
+  },
+  {
+    title: 'Cybersecurity Tools (Beginner)',
+    skills: [
+      {
+        name: 'Wireshark',
+        level: 70,
+        icon: <SiWireshark className="mr-2 inline-block text-blue-500" />,
+        description: 'Analyzing network traffic and packets.'
+      },
+      {
+        name: 'Nmap',
+        level: 65,
+        icon: <FaLock className="mr-2 inline-block text-red-500" />,
+        description: 'Scanning networks and open ports.'
+      },
+      {
+        name: 'Burp Suite',
+        level: 60,
+        icon: <SiBurpsuite className="mr-2 inline-block text-orange-600" />,
+        description: 'Testing web application requests.'
+      },
+      {
+        name: 'OWASP ZAP',
+        level: 65,
+        icon: <SiOwasp className="mr-2 inline-block text-orange-400" />,
+        description: 'Scanning websites for vulnerabilities.'
+      },
+      {
+        name: 'Kali Linux',
+        level: 60,
+        icon: <SiKalilinux className="mr-2 inline-block text-green-600" />,
+        description: 'Using tools for security testing.'
+      },
+    ],
+  },
+  {
+    title: 'Tools & Design',
+    skills: [
+      {
+        name: 'Git',
+        level: 95,
+        icon: <FaGitAlt className="mr-2 inline-block text-orange-600" />,
+        description: 'Version control and collaborative development.'
+      },
+      {
+        name: 'ChatGPT',
+        level: 99,
+        icon: <SiOpenai className="mr-2 inline-block text-blue-500" />,
+        description: 'AI-assisted problem solving and coding.'
+      },
+      {
+        name: 'Firebase',
+        level: 60,
+        icon: <SiFirebase className="mr-2 inline-block text-yellow-500" />,
+        description: 'Authentication and backend-as-a-service.'
+      },
+      {
+        name: 'Adobe XD',
+        level: 75,
+        icon: <SiAdobexd className="mr-2 inline-block text-pink-400" />,
+        description: 'Designing UI/UX wireframes and prototypes.'
+      },
+      {
+        name: 'Bolt',
+        level: 85,
+        icon: <HiLightningBolt className="mr-2 inline-block text-orange-500" />,
+        description: 'Boosting development speed and productivity.'
+      },
+    ],
+  },
+];
+
+
 
   return (
     <section id="skills" className="py-6">

@@ -97,7 +97,7 @@ const Projects = () => {
    {
       id: 6,
       title: 'Employee Management System',
-      category: 'fullstack',
+      category: 'backend',
       description: 'A streamlined platform to manage employee profiles, assign tasks with deadlines, and handle leave requests. It enhances team productivity by centralizing responsibilities and ensuring timely task completion.',
       image: 'https://ik.imagekit.io/xh7qx43uk/employeemanagementsystem.png?updatedAt=1749470008664',
       technologies: ['React', 'Node.js', 'LocalStorage', 'Tailwind CSS'],
@@ -108,7 +108,7 @@ const Projects = () => {
    {
   id: 7,
   title: 'Shringar AI – Next-Gen Multi-Vendor Jewelry Marketplace',
-  category: 'backend',
+  category: 'fullstack',
   description:
     'Shringar AI is a next-generation multi-vendor jewelry e-commerce platform featuring secure role-based authentication, seller verification, and admin-controlled product approvals. The platform supports Customers, Sellers, and Admins with complete workflows including JWT-based login, seller onboarding with business verification, product moderation, and live marketplace publishing. The project also explores advanced concepts like AR Try-On and immersive 3D UI backgrounds for an enhanced shopping experience.',
   image:
@@ -130,7 +130,7 @@ const Projects = () => {
 {
   id: 8,
   title: 'AIExecute – AI-Enhanced Business & Services Platform',
-  category: 'fullstack',
+  category: 'frontend',
   description: 
     'AIExecute is a modern business services platform built with a focus on smooth user experience, secure authentication, and role-based workflows. The platform consists of Customer, Seller, and Admin functionalities, offering secure login, business onboarding, approval workflows, and real-time interactions. Users can explore services, register as sellers, get verified, and manage their offerings, while administrators oversee approvals and system controls. The project also features advanced UI elements and responsive designs for seamless usage.',
   image: 'https://ik.imagekit.io/6honyi0g1d/image.png?updatedAt=1765955996914',
@@ -202,7 +202,7 @@ const Projects = () => {
         <motion.div
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
+        > 
           <AnimatePresence>
             {filteredProjects.map((project, index) => (
               <motion.div

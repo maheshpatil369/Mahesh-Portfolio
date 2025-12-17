@@ -4,7 +4,7 @@ import { ChevronDown, ExternalLink, ArrowRight } from "lucide-react";
 
 const faqData = [
   {
-    question: "Which technologies and tools do you primarily work with?",
+    question: "Q.Which technologies and tools do you primarily work with?",
     answer: (
       <>
         I specialize in <strong>React</strong> and <strong>Node.js</strong>, but I'm also well-versed in Express.js, MongoDB, Tailwind CSS, Flutter, and UI/UX tools like Figma and Adobe XD.{" "}
@@ -123,7 +123,14 @@ const AQSection = () => {
               onClick={() => toggle(i)}
               className="flex justify-between items-center w-full text-left font-semibold text-lg sm:text-xl"
             >
-              <span>{item.question}</span>
+<span className="flex items-start gap-2">
+  <span className="text-sky-400 font-semibold select-none">
+    Q.
+  </span>
+  <span className="leading-snug">
+    {item.question}
+  </span>
+</span>
               <motion.span
                 animate={{ rotate: openIndex === i ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
