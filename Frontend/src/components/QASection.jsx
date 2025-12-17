@@ -1,9 +1,10 @@
 import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ExternalLink, ArrowRight } from "lucide-react";
 
 const faqData = [
   {
-    question: "What technologies do you specialize in?",
+    question: "Which technologies and tools do you primarily work with?",
     answer: (
       <>
         I specialize in <strong>React</strong> and <strong>Node.js</strong>, but I'm also well-versed in Express.js, MongoDB, Tailwind CSS, Flutter, and UI/UX tools like Figma and Adobe XD.{" "}
@@ -17,11 +18,11 @@ const faqData = [
     ),
   },
   {
-    question: "Are you open to freelance or remote work?",
+    question: "Are you available for freelance, remote, or contract-based opportunities?",
     answer: "Yes, I'm open to freelance, remote work, and internships.",
   },
   {
-    question: "Can I view your resume?",
+    question: "Where can I view or download your resume?",
     answer: (
       <>
         Yes!{" "}
@@ -37,7 +38,7 @@ const faqData = [
     ),
   },
   {
-    question: "Tell me about your work experience.",
+    question: "Can you briefly describe your professional experience?",
     answer: (
       <>
         I worked as a <strong>UI/UX Design Intern</strong> at{" "}
@@ -54,7 +55,7 @@ const faqData = [
     ),
   },
   {
-    question: "Do you contribute to open source?",
+    question: "Do you contribute to open-source projects or client-based solutions?",
     answer: (
       <>
         Yes, I love contributing to open source and sharing helpful tools and UI components.
@@ -63,14 +64,24 @@ const faqData = [
         <br/><br/>
         <div className="flex items-center space-x-4 text-xs sm:text-sm">
           <span>
-            🔗&nbsp;GitHub:{" "}
-            <a href="https://github.com/maheshpatil369/Emp-mange-project" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-500 underline">
+            🔗 GitHub:{" "}
+            <a
+              href="https://github.com/maheshpatil369/Emp-mange-project"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-500 underline"
+            >
               Click here
             </a>
           </span>
           <span>
-            ▶️&nbsp;YouTube Demo:{" "}
-            <a href="https://youtu.be/EnL-osAQ8PI" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:text-blue-500 underline">
+            ▶️ YouTube Demo:{" "}
+            <a
+              href="https://youtu.be/EnL-osAQ8PI"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-400 hover:text-blue-500 underline"
+            >
               Watch here
             </a>
           </span>
@@ -80,24 +91,32 @@ const faqData = [
   },
 ];
 
+
 const AQSection = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
-  const toggle = (i) => {
-    setOpenIndex(openIndex === i ? null : i);
+  const toggle = (index) => {
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-white">
+    <section
+      id="faq"
+      className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 text-white"
+    >
       <h2 className="text-4xl font-bold text-center mb-12 underline decoration-sky-500 underline-offset-[10px]">
         Frequently Asked Questions
       </h2>
+
       <div className="space-y-6">
         {faqData.map((item, i) => (
-          <div
+          <motion.div
             key={i}
-            className={`rounded-xl backdrop-blur bg-white/5 border border-white/10 p-5 transition-all duration-300 shadow-lg ${
-              openIndex === i ? "ring-2 ring-blue-400" : "hover:ring-1 hover:ring-white/20"
+            layout
+            className={`rounded-xl backdrop-blur bg-white/5 border border-white/10 p-5 shadow-lg transition-all ${
+              openIndex === i
+                ? "ring-2 ring-blue-400"
+                : "hover:ring-1 hover:ring-white/20"
             }`}
           >
             <button
@@ -105,24 +124,31 @@ const AQSection = () => {
               className="flex justify-between items-center w-full text-left font-semibold text-lg sm:text-xl"
             >
               <span>{item.question}</span>
-              <ChevronDown
-                className={`w-6 h-6 transition-transform ${
-                  openIndex === i ? "rotate-180" : ""
-                }`}
-              />
+              <motion.span
+                animate={{ rotate: openIndex === i ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ChevronDown className="w-6 h-6" />
+              </motion.span>
             </button>
 
-            <div
-              className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                openIndex === i ? "max-h-40 opacity-100 mt-3" : "max-h-0 opacity-0"
-              }`}
-            >
-              <div className="text-gray-300 text-sm sm:text-base flex gap-2 items-start">
-                <ArrowRight size={18} className="mt-1 text-blue-400 shrink-0" />
-                <div className="leading-relaxed">{item.answer}</div>
-              </div>
-            </div>
-          </div>
+            <AnimatePresence initial={false}>
+              {openIndex === i && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.35, ease: "easeInOut" }}
+                  className="overflow-hidden mt-4"
+                >
+                  <div className="flex gap-3 items-start text-gray-300 text-sm sm:text-base">
+                    <ArrowRight size={18} className="mt-1 text-blue-400 shrink-0" />
+                    <div className="leading-relaxed">{item.answer}</div>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         ))}
       </div>
     </section>

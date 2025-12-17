@@ -104,7 +104,51 @@ const Projects = () => {
       liveUrl: 'https://employee-management-system-maheshpatil369s-projects.vercel.app/',
       githubUrl: 'https://github.com/maheshpatil369/Employee-Management-System.git',
       youtubeUrl: 'https://youtu.be/ZEXJYcjO7lA'
-    }
+    },
+   {
+  id: 7,
+  title: 'Shringar AI – Next-Gen Multi-Vendor Jewelry Marketplace',
+  category: 'backend',
+  description:
+    'Shringar AI is a next-generation multi-vendor jewelry e-commerce platform featuring secure role-based authentication, seller verification, and admin-controlled product approvals. The platform supports Customers, Sellers, and Admins with complete workflows including JWT-based login, seller onboarding with business verification, product moderation, and live marketplace publishing. The project also explores advanced concepts like AR Try-On and immersive 3D UI backgrounds for an enhanced shopping experience.',
+  image:
+    'https://ik.imagekit.io/6honyi0g1d/image.png?updatedAt=1765955657819',
+  technologies: [
+    'React',
+    'Vite',
+    'Tailwind CSS',
+    'Shadcn UI',
+    'Node.js',
+    'Express.js',
+    'MongoDB',
+    'JWT Authentication'
+  ],
+  liveUrl: '#',
+  githubUrl: '#',
+  youtubeUrl: 'https://youtu.be/kDsWvkaRJP4'
+},
+{
+  id: 8,
+  title: 'AIExecute – AI-Enhanced Business & Services Platform',
+  category: 'fullstack',
+  description: 
+    'AIExecute is a modern business services platform built with a focus on smooth user experience, secure authentication, and role-based workflows. The platform consists of Customer, Seller, and Admin functionalities, offering secure login, business onboarding, approval workflows, and real-time interactions. Users can explore services, register as sellers, get verified, and manage their offerings, while administrators oversee approvals and system controls. The project also features advanced UI elements and responsive designs for seamless usage.',
+  image: 'https://ik.imagekit.io/6honyi0g1d/image.png?updatedAt=1765955996914',
+  technologies: [
+    'React',
+    'Tailwind CSS',
+    'Node.js',
+    'Express.js',
+    'MongoDB',
+    'JWT Authentication',
+    'Shadcn UI'
+  ],
+  liveUrl: 'https://www.aiexecute.in/',
+  githubUrl: '#',
+  youtubeUrl: 'https://youtu.be/qRbZXG5FC1w'
+},
+
+
   ];
 
   const categories = [
@@ -120,7 +164,7 @@ const Projects = () => {
     : projects.filter(project => project.category === filter);
 
   return (
-    <section id="projects" className="py-20 bg-slate-800/30">
+    <section id="projects" className="py-8 bg-slate-800/30">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}

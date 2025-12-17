@@ -12,6 +12,7 @@ import ParticleBackground from './components/ParticleBackground';
 import QASection from './components/QASection';
 import Experience from './components/Experiance';
 
+// ✅ Vercel Analytics import (React version)
 import { Analytics } from "@vercel/analytics/react";
 
 const ScrollToTopButton = () => {
@@ -50,7 +51,8 @@ const ScrollToTopButton = () => {
 };
 
 function App() {
-  const theme = 'dark';
+  // Removed useState for theme as it is hardcoded to 'dark'
+  const theme = 'dark'; 
 
   useEffect(() => {
     document.documentElement.classList.add('dark');
@@ -91,13 +93,15 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
       <ParticleBackground theme={theme} />
-      <Navigation theme={theme} />
+      {/* Removed theme prop as it is not used in the updated Navigation component */}
+      <Navigation /> 
 
       <motion.main
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
+        {/* The ID for 'home' is crucial for navigation */}
         <div id="home">
           <Hero theme={theme} />
         </div>
