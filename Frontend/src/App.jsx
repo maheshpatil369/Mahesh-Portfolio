@@ -10,8 +10,8 @@ import Contact from './components/Contact';
 import Navigation from './components/Navigation';
 import ParticleBackground from './components/ParticleBackground';
 import QASection from './components/QASection';
+import Experience from './components/Experiance';
 
-// ✅ Vercel Analytics import (React version)
 import { Analytics } from "@vercel/analytics/react";
 
 const ScrollToTopButton = () => {
@@ -103,6 +103,7 @@ function App() {
         </div>
 
         <About />
+        <Experience />
         <Skills />
         <Projects />
         <QASection />
