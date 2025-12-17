@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* ===== Custom Scrollbar for GitHub Calendar ===== */
+
+.scrollbar-custom {
+  scrollbar-width: thin;                  /* Firefox */
+  scrollbar-color: #64748b transparent;   /* slate-500 */
+}
+
+/* WebKit Browsers */
+.scrollbar-custom::-webkit-scrollbar {
+  height: 10px;                           /* desktop */
+}
+
+/* Track */
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: rgba(148, 163, 184, 0.15);  /* slate-400 / light */
+  border-radius: 999px;
+}
+
+/* Thumb */
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #64748b;              /* slate-500 */
+  border-radius: 999px;
+}
+
+/* ===== Mobile Enhancement ===== */
+@media (max-width: 640px) {
+  .scrollbar-custom::-webkit-scrollbar {
+    height: 14px;                         /* thicker for touch */
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-thumb {
+    background-color: #475569;            /* slate-600 (more visible) */
+  }
+
+  .scrollbar-custom::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.25);
+  }
+}

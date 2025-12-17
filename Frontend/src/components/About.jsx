@@ -7,33 +7,33 @@ import GitHubCalendar from 'react-github-calendar';
 const About = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
-    triggerOnce: true
+    triggerOnce: true,
   });
 
   const [showGraph, setShowGraph] = useState(false);
-  const [activeFeature, setActiveFeature] = useState(null); // ✅ mobile toggle state
+  const [activeFeature, setActiveFeature] = useState(null);
 
   const features = [
     {
       icon: Code,
       title: 'Clean Code',
-      description: 'Writing maintainable and scalable code that stands the test of time.'
+      description: 'Writing maintainable and scalable code that stands the test of time.',
     },
     {
       icon: Palette,
       title: 'Creative Design',
-      description: 'Crafting beautiful interfaces that provide exceptional user experiences.'
+      description: 'Crafting beautiful interfaces that provide exceptional user experiences.',
     },
     {
       icon: Zap,
       title: 'Performance',
-      description: 'Optimizing applications for speed and efficiency across all devices.'
+      description: 'Optimizing applications for speed and efficiency across all devices.',
     },
     {
       icon: Heart,
       title: 'Passion',
-      description: 'Bringing enthusiasm and dedication to every project I work on.'
-    }
+      description: 'Bringing enthusiasm and dedication to every project I work on.',
+    },
   ];
 
   return (
@@ -69,7 +69,9 @@ const About = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <section className="w-full max-w-4xl p-6 rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold text-white mb-6 text-center"> GitHub Contributions </h2>
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">
+              GitHub Contributions
+            </h2>
 
             <button
               onClick={() => setShowGraph(!showGraph)}
@@ -79,16 +81,30 @@ const About = () => {
             </button>
 
             {!showGraph ? (
-              <GitHubCalendar
-                username="maheshpatil369"
-                blockSize={14}
-                blockMargin={5}
-                fontSize={15}
-                theme={{
-                  dark: ['#1e293b', '#4ade80', '#22c55e', '#16a34a', '#15803d']
-                }}
-                className="w-full overflow-x-auto"
-              />
+              <div className="w-full overflow-x-auto scrollbar-custom">
+                <GitHubCalendar
+                  username="maheshpatil369"
+                  blockSize={14}
+                  blockMargin={5}
+                  fontSize={15}
+                  theme={{
+                    light: [
+                      '#e5e7eb',
+                      '#86efac',
+                      '#4ade80',
+                      '#22c55e',
+                      '#16a34a',
+                    ],
+                    dark: [
+                      '#1e293b',
+                      '#4ade80',
+                      '#22c55e',
+                      '#16a34a',
+                      '#15803d',
+                    ],
+                  }}
+                />
+              </div>
             ) : (
               <img
                 src="https://github-readme-activity-graph.vercel.app/graph?username=maheshpatil369&bg_color=00000000&color=15bc2f&line=15bc2f&point=15bc2f&hide_border=true"
@@ -128,17 +144,15 @@ const About = () => {
                 {feature.title}
               </h4>
 
-              {/* Desktop description */}
               <p className="hidden md:block text-slate-400 text-sm">
                 {feature.description}
               </p>
 
-              {/* Mobile toggle description */}
               <motion.p
                 initial={false}
                 animate={{
                   height: activeFeature === index ? 'auto' : 0,
-                  opacity: activeFeature === index ? 1 : 0
+                  opacity: activeFeature === index ? 1 : 0,
                 }}
                 transition={{ duration: 0.3 }}
                 className="md:hidden overflow-hidden text-slate-400 text-sm"
