@@ -112,7 +112,7 @@ const Projects = () => {
   description:
     'Shringar AI is a next-generation multi-vendor jewelry e-commerce platform featuring secure role-based authentication, seller verification, and admin-controlled product approvals. The platform supports Customers, Sellers, and Admins with complete workflows including JWT-based login, seller onboarding with business verification, product moderation, and live marketplace publishing. The project also explores advanced concepts like AR Try-On and immersive 3D UI backgrounds for an enhanced shopping experience.',
   image:
-    'https://ik.imagekit.io/6honyi0g1d/image.png?updatedAt=1765955657819',
+    'https://ik.imagekit.io/6honyi0g1d/Screenshot%202026-01-18%20151634.png?updatedAt=1768729625487',
   technologies: [
     'React',
     'Vite',

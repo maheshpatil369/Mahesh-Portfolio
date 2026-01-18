@@ -4,7 +4,7 @@ import { ChevronDown, ExternalLink, ArrowRight } from "lucide-react";
 
 const faqData = [
   {
-    question: "Q.Which technologies and tools do you primarily work with?",
+    question: "Which technologies and tools do you primarily work with?",
     answer: (
       <>
         I specialize in <strong>React</strong> and <strong>Node.js</strong>, but I'm also well-versed in Express.js, MongoDB, Tailwind CSS, Flutter, and UI/UX tools like Figma and Adobe XD.{" "}
@@ -37,12 +37,14 @@ const faqData = [
       </>
     ),
   },
-  {
-    question: "Can you briefly describe your professional experience?",
-    answer: (
-      <>
-        I worked as a <strong>UI/UX Design Intern</strong> at{" "}
-        <strong>AIexecute</strong> since <em>May 2025</em>.{" "}
+{
+  question: "Can you briefly describe your professional experience?",
+  answer: (
+    <>
+      I worked as a <strong>UI/UX Design Intern</strong> at{" "}
+      <strong>AIexecute</strong> since <em>May 2025</em>.{" "}
+
+      <div className="flex flex-wrap items-center gap-4 mt-2 text-sm">
         <a
           href="https://drive.google.com/file/d/1L1S1968kAuCzPYJ2Gvb3raCc13wFMGLs/view?usp=sharing"
           target="_blank"
@@ -51,9 +53,20 @@ const faqData = [
         >
           View Offer Letter <ExternalLink size={14} />
         </a>
-      </>
-    ),
-  },
+
+        <a
+          href="https://drive.google.com/file/d/1yXq4yffb-RlOoUd3gnoHkaHGS99K93SA/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 text-blue-400 hover:text-blue-500 underline"
+        >
+          View Completion Letter <ExternalLink size={14} />
+        </a>
+      </div>
+    </>
+  ),
+},
+
   {
     question: "Do you contribute to open-source projects or client-based solutions?",
     answer: (
