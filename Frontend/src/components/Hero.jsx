@@ -9,7 +9,7 @@ const Hero = ({ theme }) => {
 
   // Construct the Google Drive embed URL from the file ID
   // Updated resumeFileId with the new ID provided by the user
-  const resumeFileId = '1CW8q-Iu3eFZM5bzNrWJW0w1LpMj8pfWm';
+  const resumeFileId = '1-L6DIH8o37sY3qqaAhVWlqf4QWOvtTmU';
   
   const resumeEmbedUrl = `https://drive.google.com/file/d/${resumeFileId}/preview`;
 // https://drive.google.com/file/d/1_h_tSQGVXxO9SmLxY_gd6_EYK21l16Wx/view?usp=sharing
