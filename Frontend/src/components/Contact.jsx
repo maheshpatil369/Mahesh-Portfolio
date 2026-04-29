@@ -221,7 +221,6 @@ import { useInView } from 'react-intersection-observer';
 import { Mail, Phone, MapPin, Send, CheckCircle, XCircle, AlertCircle } from 'lucide-react';
 
 const Contact = () => {
-  const API_BASE_URL = import.meta.env.VITE_API_URL;
   const [ref, inView] = useInView({ threshold: 0.1, triggerOnce: true });
 
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -271,20 +270,15 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch(`${API_BASE_URL}/api/send-email`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          to: 'contact2mahesh937@gmail.com',
-          subject: `New message from ${formData.name}`,
-          html: `
-            <p><strong>Name:</strong> ${formData.name}</p>
-            <p><strong>Email:</strong> ${formData.email}</p>
-            <p><strong>Message:</strong></p>
-            <p>${formData.message}</p>
-          `,
-        }),
-      });
+   const response = await fetch('/api/send-email', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    name: formData.name,
+    email: formData.email,
+    message: formData.message,
+  }),
+});
 
       const data = await response.json();
 
