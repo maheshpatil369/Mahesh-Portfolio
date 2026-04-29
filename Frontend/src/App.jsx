@@ -11,6 +11,7 @@ import Navigation from './components/Navigation';
 import ParticleBackground from './components/ParticleBackground';
 import QASection from './components/QASection';
 import Experience from './components/Experiance';
+import Hackathon from './components/Hackathon';
 
 // ✅ Vercel Analytics import (React version)
 import { Analytics } from "@vercel/analytics/react";
@@ -108,6 +109,7 @@ function App() {
 
         <About />
         <Experience />
+        <Hackathon /> 
         <Skills />
         <Projects />
         <QASection />

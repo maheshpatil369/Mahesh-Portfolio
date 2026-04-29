@@ -112,8 +112,8 @@ const Hero = ({ theme }) => {
              transition={{ delay: 0.6, duration: 0.8 }}
              className="text-sm sm:text-lg text-slate-400 mb-8 max-w-2xl mx-auto transition-colors duration-300"
            >
-             Passionate about creating beautiful, functional, and user-centered digital experiences.
-             I bring ideas to life through code and design.
+  Passionate about creating beautiful, functional, and user-centered digital experiences.
+I bring ideas to life through code and design, 2× Hackathon Winner 🏆
            </motion.p>
 
            <motion.div

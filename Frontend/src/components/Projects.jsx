@@ -1,20 +1,21 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-import { ExternalLink, Github, Eye, Star } from 'lucide-react';
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import { ExternalLink, Github, Eye, Star } from "lucide-react";
 
 // Helper function to convert any YouTube URL to an embeddable URL with autoplay and minimal UI
 const getYouTubeEmbedUrl = (url) => {
-  if (!url) return '';
-  let videoId = '';
+  if (!url) return "";
+  let videoId = "";
 
   // Regex to find the video ID from various YouTube URL formats
-  const regex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+  const regex =
+    /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
   const match = url.match(regex);
 
   if (match && match[1]) {
     videoId = match[1];
-  } else if (url.includes('/embed/')) {
+  } else if (url.includes("/embed/")) {
     // If it is already an embed url, extract the id
     const embedMatch = url.match(/\/embed\/([a-zA-Z0-9_-]{11})/);
     if (embedMatch && embedMatch[1]) {
@@ -27,34 +28,59 @@ const getYouTubeEmbedUrl = (url) => {
     return `https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=1&loop=1&playlist=${videoId}&showinfo=0&rel=0`;
   }
 
-  return ''; // Return empty string if no valid ID is found
+  return ""; // Return empty string if no valid ID is found
 };
-
 
 const Projects = () => {
   const [ref, inView] = useInView({
     threshold: 0.1,
-    triggerOnce: true
+    triggerOnce: true,
   });
 
-  const [filter, setFilter] = useState('all');
+  const [filter, setFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState(null);
 
   const projects = [
-      {
+    {
       id: 1,
-      title: 'Farmer Crop Data Management System',
-      category: 'Client',
-      description: 'A comprehensive platform for managing crop data, enabling farmers to track growth, yield, and health metrics effectively.',
-      image: 'https://ik.imagekit.io/6honyi0g1d/Screenshot%202025-08-25%20180414.png?updatedAt=1756318171600',
-      technologies: ['React', 'TypeScript', 'Flutter','Tailwind CSS'],
-      liveUrl: '#',
-      githubUrl: '#',
-      youtubeUrl: 'https://youtu.be/EnL-osAQ8PI'
+      title: "Farmer Crop Data Management System",
+      category: "Client",
+      description:
+        "A comprehensive platform for managing crop data, enabling farmers to track growth, yield, and health metrics effectively.",
+      image:
+        "https://ik.imagekit.io/6honyi0g1d/Screenshot%202025-08-25%20180414.png?updatedAt=1756318171600",
+      technologies: ["React", "TypeScript", "Flutter", "Tailwind CSS"],
+      liveUrl: "#",
+      githubUrl: "#",
+      youtubeUrl: "https://youtu.be/EnL-osAQ8PI",
     },
-    {   
+    {
       id: 2,
-       title: 'PlanPal – Plan, Track, Explore',
+      title: "UIUXMaker – AI UI Generator",
+      category: "fullstack",
+      description:
+        'An AI-powered tool that generates complete UI layouts from simple text prompts. Just describe your idea (e.g., "Instagram dashboard"), and the system creates structured UI screens with live preview and export options. Designed for developers and designers to rapidly prototype interfaces.',
+
+      image:
+        "https://ik.imagekit.io/6honyi0g1d/maxresdefault.webp?updatedAt=1777491826903", // 👉 save your screenshot in public folder
+
+      technologies: [
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "PostgreSQL",
+        "Drizzle ORM",
+        "AI Integration",
+      ],
+
+      liveUrl: "https://uiuxmaker.in",
+      githubUrl:
+        "https://www.linkedin.com/posts/mahesh-patil-1a9b9a275_ai-uiux-webdevelopment-activity-7435995238554316800-cvvc?utm_source=share&utm_medium=member_desktop&rcm=ACoAAENF8ZEB2Pc3ukFMJR_fGVosvXroc63w3vk", // your shared link
+      youtubeUrl: "https://youtu.be/xWBRyjOM4Bc", // optional (leave empty if not available)
+    },
+    {
+      id: 3,
+      title: 'PlanPal – Plan, Track, Explore',
       category: 'fullstack',
       description: 'PlanPal is a comprehensive tour management platform designed to simplify the planning, recording, and organization of tours. It helps agencies schedule trips, track bookings, manage itineraries, and maintain client records—all in one intuitive interface. With PlanPal, travel agencies can streamline operations, improve customer service, and ensure seamless travel experiences',
       image: 'https://ik.imagekit.io/xh7qx43uk/Screenshot%202025-06-23%20123235.png?updatedAt=1750662671688',
@@ -64,104 +90,100 @@ const Projects = () => {
       youtubeUrl: 'https://youtu.be/6UnoJ_qdUuk'
     },
     {
-      id: 3,
-        title: 'Obyes Agency Clone',
-      category: 'frontend',
-      description: 'A responsive and modern clone of the Obyes creative agency website. It replicates the clean layout, smooth animations, and interactive design elements to showcase UI/UX skills. Built to demonstrate frontend precision and visual fidelity in real-world design replication..',
-      image: 'https://ik.imagekit.io/xh7qx43uk/Screenshot%202025-06-09%20172613.png?updatedAt=1749470204263',
-      technologies: ['JavaScript', 'Tailwind CSS', 'GSAC Animation', 'HTML'],
-      liveUrl: 'https://obyes-agency-clone.vercel.app/',
-      githubUrl: 'https://github.com/maheshpatil369/obys-agency-clone.git',
-      youtubeUrl: 'https://youtu.be/UX2EYwclRcA'
-    },
-    {
       id: 4,
-           title: 'Web Vulnerability Scanner',
-      category: 'frontend',
-      description: 'Designed to automate the detection of common web vulnerabilities—such as SQL injection, XSS, and insecure headers—to help developers and security teams proactively identify and fix issues before they can be exploited.',
-      image: 'https://ik.imagekit.io/xh7qx43uk/api%20python.png?updatedAt=1749471347852',
-      technologies: ['Python', 'Tkinter', 'Shodan API'],
-      liveUrl: 'https://github.com/maheshpatil369/WebVulnScannerPython/blob/main/readme.md',
-      githubUrl: 'https://github.com/maheshpatil369/WebVulnScannerPython.git'
+      title: "Web Vulnerability Scanner",
+      category: "frontend",
+      description:
+        "Designed to automate the detection of common web vulnerabilities—such as SQL injection, XSS, and insecure headers—to help developers and security teams proactively identify and fix issues before they can be exploited.",
+      image:
+        "https://ik.imagekit.io/xh7qx43uk/api%20python.png?updatedAt=1749471347852",
+      technologies: ["Python", "Tkinter", "Shodan API"],
+      liveUrl:
+        "https://github.com/maheshpatil369/WebVulnScannerPython/blob/main/readme.md",
+      githubUrl: "https://github.com/maheshpatil369/WebVulnScannerPython.git",
     },
     {
       id: 5,
-      title: 'Portfolio Website',
-      category: 'frontend',
-      description: 'A responsive portfolio website with modern animations and smooth scrolling effects showcasing creative work.',
-      image: 'https://ik.imagekit.io/xh7qx43uk/Screenshot%202025-06-09%20173112.png?updatedAt=1749470491233',
-      technologies: ['React', 'Framer Motion', 'Tailwind CSS'],
-      liveUrl: 'maheshpatil.tech',
-      githubUrl: 'https://github.com/maheshpatil369?tab=repositories'
+      title: "Portfolio Website",
+      category: "frontend",
+      description:
+        "A responsive portfolio website with modern animations and smooth scrolling effects showcasing creative work.",
+      image:
+        "https://ik.imagekit.io/xh7qx43uk/Screenshot%202025-06-09%20173112.png?updatedAt=1749470491233",
+      technologies: ["React", "Framer Motion", "Tailwind CSS"],
+      liveUrl: "maheshpatil.tech",
+      githubUrl: "https://github.com/maheshpatil369?tab=repositories",
     },
-   {
+    {
       id: 6,
-      title: 'Employee Management System',
-      category: 'backend',
-      description: 'A streamlined platform to manage employee profiles, assign tasks with deadlines, and handle leave requests. It enhances team productivity by centralizing responsibilities and ensuring timely task completion.',
-      image: 'https://ik.imagekit.io/xh7qx43uk/employeemanagementsystem.png?updatedAt=1749470008664',
-      technologies: ['React', 'Node.js', 'LocalStorage', 'Tailwind CSS'],
-      liveUrl: 'https://employee-management-system-maheshpatil369s-projects.vercel.app/',
-      githubUrl: 'https://github.com/maheshpatil369/Employee-Management-System.git',
-      youtubeUrl: 'https://youtu.be/ZEXJYcjO7lA'
+   title: "Obyes Agency Clone",
+      category: "frontend",
+      description:
+        "A responsive and modern clone of the Obyes creative agency website. It replicates the clean layout, smooth animations, and interactive design elements to showcase UI/UX skills. Built to demonstrate frontend precision and visual fidelity in real-world design replication..",
+      image:
+        "https://ik.imagekit.io/xh7qx43uk/Screenshot%202025-06-09%20172613.png?updatedAt=1749470204263",
+      technologies: ["JavaScript", "Tailwind CSS", "GSAC Animation", "HTML"],
+      liveUrl: "https://obyes-agency-clone.vercel.app/",
+      githubUrl: "https://github.com/maheshpatil369/obys-agency-clone.git",
+      youtubeUrl: "https://youtu.be/UX2EYwclRcA",
     },
-   {
-  id: 7,
-  title: 'Shringar AI – Next-Gen Multi-Vendor Jewelry Marketplace',
-  category: 'fullstack',
-  description:
-    'Shringar AI is a next-generation multi-vendor jewelry e-commerce platform featuring secure role-based authentication, seller verification, and admin-controlled product approvals. The platform supports Customers, Sellers, and Admins with complete workflows including JWT-based login, seller onboarding with business verification, product moderation, and live marketplace publishing. The project also explores advanced concepts like AR Try-On and immersive 3D UI backgrounds for an enhanced shopping experience.',
-  image:
-    'https://ik.imagekit.io/6honyi0g1d/Screenshot%202026-01-18%20151634.png?updatedAt=1768729625487',
-  technologies: [
-    'React',
-    'Vite',
-    'Tailwind CSS',
-    'Shadcn UI',
-    'Node.js',
-    'Express.js',
-    'MongoDB',
-    'JWT Authentication'
-  ],
-  liveUrl: '#',
-  githubUrl: '#',
-  youtubeUrl: 'https://youtu.be/kDsWvkaRJP4'
-},
-{
-  id: 8,
-  title: 'AIExecute – AI-Enhanced Business & Services Platform',
-  category: 'frontend',
-  description: 
-    'AIExecute is a modern business services platform built with a focus on smooth user experience, secure authentication, and role-based workflows. The platform consists of Customer, Seller, and Admin functionalities, offering secure login, business onboarding, approval workflows, and real-time interactions. Users can explore services, register as sellers, get verified, and manage their offerings, while administrators oversee approvals and system controls. The project also features advanced UI elements and responsive designs for seamless usage.',
-  image: 'https://ik.imagekit.io/6honyi0g1d/image.png?updatedAt=1765955996914',
-  technologies: [
-    'React',
-    'Tailwind CSS',
-    'Node.js',
-    'Express.js',
-    'MongoDB',
-    'JWT Authentication',
-    'Shadcn UI'
-  ],
-  liveUrl: 'https://www.aiexecute.in/',
-  githubUrl: '#',
-  youtubeUrl: 'https://youtu.be/qRbZXG5FC1w'
-},
-
-
+    {
+      id: 7,
+      title: "Shringar AI – Next-Gen Multi-Vendor Jewelry Marketplace",
+      category: "fullstack",
+      description:
+        "Shringar AI is a next-generation multi-vendor jewelry e-commerce platform featuring secure role-based authentication, seller verification, and admin-controlled product approvals. The platform supports Customers, Sellers, and Admins with complete workflows including JWT-based login, seller onboarding with business verification, product moderation, and live marketplace publishing. The project also explores advanced concepts like AR Try-On and immersive 3D UI backgrounds for an enhanced shopping experience.",
+      image:
+        "https://ik.imagekit.io/6honyi0g1d/Screenshot%202026-01-18%20151634.png?updatedAt=1768729625487",
+      technologies: [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Shadcn UI",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT Authentication",
+      ],
+      liveUrl: "#",
+      githubUrl: "#",
+      youtubeUrl: "https://youtu.be/kDsWvkaRJP4",
+    },
+    {
+      id: 8,
+      title: "AIExecute – AI-Enhanced Business & Services Platform",
+      category: "frontend",
+      description:
+        "AIExecute is a modern business services platform built with a focus on smooth user experience, secure authentication, and role-based workflows. The platform consists of Customer, Seller, and Admin functionalities, offering secure login, business onboarding, approval workflows, and real-time interactions. Users can explore services, register as sellers, get verified, and manage their offerings, while administrators oversee approvals and system controls. The project also features advanced UI elements and responsive designs for seamless usage.",
+      image:
+        "https://ik.imagekit.io/6honyi0g1d/image.png?updatedAt=1765955996914",
+      technologies: [
+        "React",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JWT Authentication",
+        "Shadcn UI",
+      ],
+      liveUrl: "https://www.aiexecute.in/",
+      githubUrl: "#",
+      youtubeUrl: "https://youtu.be/qRbZXG5FC1w",
+    },
   ];
 
   const categories = [
-    { id: 'all', label: 'All Projects' },
-    { id: 'fullstack', label: 'Full Stack' },
-    { id: 'frontend', label: 'Frontend' },
-    { id: 'backend', label: 'Backend' },
-    { id: 'Client', label: 'Client' }
+    { id: "all", label: "All Projects" },
+    { id: "fullstack", label: "Full Stack" },
+    { id: "frontend", label: "Frontend" },
+    { id: "backend", label: "Backend" },
+    { id: "Client", label: "Client" },
   ];
 
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
+  const filteredProjects =
+    filter === "all"
+      ? projects
+      : projects.filter((project) => project.category === filter);
 
   return (
     <section id="projects" className="py-8 bg-slate-800/30">
@@ -174,10 +196,14 @@ const Projects = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            My <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Projects</span>
+            My{" "}
+            <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              Projects
+            </span>
           </h2>
           <p className="text-lg text-slate-400 max-w-3xl mx-auto mb-8">
-            Here are some of the projects I've worked on. Each one represents a unique challenge and learning experience.
+            Here are some of the projects I've worked on. Each one represents a
+            unique challenge and learning experience.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
@@ -187,8 +213,8 @@ const Projects = () => {
                 onClick={() => setFilter(category.id)}
                 className={`px-6 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
                   filter === category.id
-                    ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white'
-                    : 'bg-slate-700/50 text-slate-300 hover:bg-slate-600/50'
+                    ? "bg-gradient-to-r from-blue-500 to-cyan-500 text-white"
+                    : "bg-slate-700/50 text-slate-300 hover:bg-slate-600/50"
                 }`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
@@ -202,7 +228,7 @@ const Projects = () => {
         <motion.div
           layout
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        > 
+        >
           <AnimatePresence>
             {filteredProjects.map((project, index) => (
               <motion.div
@@ -213,7 +239,7 @@ const Projects = () => {
                 exit={{ opacity: 0, scale: 0.8 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className={`bg-slate-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 transition-all duration-300 group ${project.category === 'Client' ? 'ring-2 ring-purple-500 shadow-xl shadow-purple-500/20' : 'hover:border-blue-400/50'}`}
+                className={`bg-slate-800/50 backdrop-blur-sm rounded-xl overflow-hidden border border-slate-700/50 transition-all duration-300 group ${project.category === "Client" ? "ring-2 ring-purple-500 shadow-xl shadow-purple-500/20" : "hover:border-blue-400/50"}`}
               >
                 <div className="relative overflow-hidden">
                   <img
@@ -251,7 +277,7 @@ const Projects = () => {
                       <Github size={20} />
                     </motion.a>
                   </div>
-                  {project.category === 'Client' && (
+                  {project.category === "Client" && (
                     <span className="absolute top-2 right-2 bg-purple-500 text-white text-xs font-semibold px-2 py-1 rounded-full shadow-lg flex items-center space-x-1">
                       <Star size={12} className="fill-current text-white" />
                       <span>Client Project</span>
@@ -260,9 +286,13 @@ const Projects = () => {
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                  <p className="text-slate-400 text-sm mb-4 line-clamp-3">{project.description}</p>
-                  
+                  <h3 className="text-xl font-bold text-white mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-slate-400 text-sm mb-4 line-clamp-3">
+                    {project.description}
+                  </p>
+
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, techIndex) => (
                       <span
@@ -280,88 +310,92 @@ const Projects = () => {
         </motion.div>
 
         <AnimatePresence>
-{selectedProject && (
-  <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    className="fixed inset-0 bg-slate-900/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-    onClick={() => setSelectedProject(null)} 
-  >
-    <button
-      onClick={() => setSelectedProject(null)}
-      className="absolute top-6 right-6 text-white text-3xl hover:text-red-400 z-50"
-      aria-label="Close"
-    >
-      &times;
-    </button>
+          {selectedProject && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 bg-slate-900/90 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              onClick={() => setSelectedProject(null)}
+            >
+              <button
+                onClick={() => setSelectedProject(null)}
+                className="absolute top-6 right-6 text-white text-3xl hover:text-red-400 z-50"
+                aria-label="Close"
+              >
+                &times;
+              </button>
 
-    <motion.div
-      initial={{ scale: 0.8, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      exit={{ scale: 0.8, opacity: 0 }}
-      className="relative bg-slate-800 rounded-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
-      onClick={(e) => e.stopPropagation()}
-    >
-      {selectedProject.youtubeUrl ? (
-        <div className="aspect-video mb-6">
-          <iframe
-            src={getYouTubeEmbedUrl(selectedProject.youtubeUrl)}
-            title={selectedProject.title}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="w-full h-full rounded-lg"
-          ></iframe>
-        </div>
-      ) : (
-        <img
-          src={selectedProject.image}
-          alt={selectedProject.title}
-          className="w-full max-h-[380px] object-cover rounded-lg mb-6"
-        />
-      )}
-      <h3 className="text-2xl font-bold text-white mb-4">{selectedProject.title}</h3>
-      <p className="text-slate-400 mb-6">{selectedProject.description}</p>
+              <motion.div
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                className="relative bg-slate-800 rounded-xl p-6 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+                onClick={(e) => e.stopPropagation()}
+              >
+                {selectedProject.youtubeUrl ? (
+                  <div className="aspect-video mb-6">
+                    <iframe
+                      src={getYouTubeEmbedUrl(selectedProject.youtubeUrl)}
+                      title={selectedProject.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                      className="w-full h-full rounded-lg"
+                    ></iframe>
+                  </div>
+                ) : (
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full max-h-[380px] object-cover rounded-lg mb-6"
+                  />
+                )}
+                <h3 className="text-2xl font-bold text-white mb-4">
+                  {selectedProject.title}
+                </h3>
+                <p className="text-slate-400 mb-6">
+                  {selectedProject.description}
+                </p>
 
-      <div className="flex flex-wrap gap-2 mb-6">
-        {selectedProject.technologies.map((tech, index) => (
-          <span
-            key={index}
-            className="px-3 py-1 bg-slate-700/50 text-blue-400 text-sm rounded-full"
-          >
-            {tech}
-          </span>
-        ))}
-      </div>
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {selectedProject.technologies.map((tech, index) => (
+                    <span
+                      key={index}
+                      className="px-3 py-1 bg-slate-700/50 text-blue-400 text-sm rounded-full"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
 
-      <div className="flex space-x-4">
-        <motion.a
-          href={selectedProject.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <ExternalLink size={16} />
-          <span>Live Demo</span>
-        </motion.a>
-        <motion.a
-          href={selectedProject.githubUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center space-x-2 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          <Github size={16} />
-          <span>View Code</span>
-        </motion.a>
-      </div>
-    </motion.div>
-  </motion.div>
-)}
+                <div className="flex space-x-4">
+                  <motion.a
+                    href={selectedProject.liveUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ExternalLink size={16} />
+                    <span>Live Demo</span>
+                  </motion.a>
+                  <motion.a
+                    href={selectedProject.githubUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center space-x-2 px-4 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Github size={16} />
+                    <span>View Code</span>
+                  </motion.a>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
         </AnimatePresence>
       </div>
     </section>
