@@ -64,7 +64,7 @@ const Hero = ({ theme }) => {
                >
                  <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center transition-colors duration-300">
                    <img
-                     src="https://ik.imagekit.io/6honyi0g1d/IMG_20241121_224443_337%20(2).webp?updatedAt=1758457608205"
+                     src="https://ik.imagekit.io/6honyi0g1d/064abf71-d3e6-4953-a032-d5a69831c21b.jpeg?updatedAt=1788844211316"
                      alt="Profile"
                      className="w-44.5 h-44.5 rounded-full object-cover"
                    />
